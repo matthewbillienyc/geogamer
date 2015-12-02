@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index
+    # @user = User.all
+    # @game = Game.all
     render 'layouts/index'
   end
 end

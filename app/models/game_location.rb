@@ -1,15 +1,15 @@
 # == Schema Information
 #
-# Table name: challenges
+# Table name: game_locations
 #
 #  id          :integer          not null, primary key
+#  game_id     :integer
 #  location_id :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
 
-class Challenge < ActiveRecord::Base
+class GameLocation < ActiveRecord::Base
+  belongs_to :game
   belongs_to :location
-  has_many :clues, through: :location
-
 end
