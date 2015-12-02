@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :locations
+  resources :clues
   
   root to: "application#index"
   get '/creative' => 'creatives#index'

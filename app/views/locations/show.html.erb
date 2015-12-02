@@ -1,17 +1,22 @@
-<div class="location_show" style="background-image:url('http://www.hdwallpaperup.com/wp-content/uploads/2014/12/artic-norway1.jpg')">
+<div class="location_show" style="background-image:url('<%= @location.img_url %>')">
 	<div class="container">
 		<div class="row">
 
 			<div class="col-xs-4">
-				<%@location.clues.each do |clue| %>
-						<h3><%=clue.hint_string%></h3>
-				<%end%>
-				<input type="text" name="answer">
+
+				<%= form_for @clue, html: {id: 'reveal-clue'} do |f| %>
+					<%= f.hidden_field :location_id, :value => @location.id %>
+					<%= f.submit "Reveal Clue" %>
+				<% end %>
+				<ul class="clues">
+				</ul>
 			</div>
 
 			<div class="col-xs-8">
-				<h2><%=@location.name%></h2>	
+				<h2><%=@location.name%></h2>
 			</div>
+
+
 
 		</div>
 	</div>

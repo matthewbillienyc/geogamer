@@ -11,23 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151202202902) do
+ActiveRecord::Schema.define(version: 20151202211025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "challenges", force: :cascade do |t|
-    t.integer  "location_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "clues", force: :cascade do |t|
-    t.string   "hint_string"
-    t.string   "datatype"
-    t.integer  "location_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer "location_id"
+    t.integer "datatype_id"
+    t.string  "data"
+  end
+
+  create_table "datatypes", force: :cascade do |t|
+    t.string "dtype"
+    t.string "lead_in"
   end
 
   create_table "game_locations", force: :cascade do |t|
@@ -45,6 +47,7 @@ ActiveRecord::Schema.define(version: 20151202202902) do
 
   create_table "locations", force: :cascade do |t|
     t.string   "name"
+    t.string   "img_url"
     t.float    "latitude"
     t.string   "longitude"
     t.string   "float"
