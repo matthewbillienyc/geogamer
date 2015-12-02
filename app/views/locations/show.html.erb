@@ -1,0 +1,18 @@
+<div class="location_show" style="background-image:url('http://www.hdwallpaperup.com/wp-content/uploads/2014/12/artic-norway1.jpg')">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-xs-4">
+				<%@location.clues.each do |clue| %>
+						<h3><%=clue.hint_string%></h3>
+				<%end%>
+				<input type="text" name="answer">
+			</div>
+
+			<div class="col-xs-8">
+				<h2><%=@location.name%></h2>	
+			</div>
+
+		</div>
+	</div>
+</div>
