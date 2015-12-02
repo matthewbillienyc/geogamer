@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'sessions/new'
-
+  # get 'sessions/new'
+  resources :users
   root to: "application#index"
   get '/creative' => 'creatives#creative'
   get 'signup' => 'users#new'
