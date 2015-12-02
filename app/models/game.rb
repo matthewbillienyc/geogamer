@@ -11,7 +11,7 @@
 class Game < ActiveRecord::Base
   belongs_to :user
   
-  has_many :locations, through: :game_location
+  has_many :locations, through: :game_locations
   has_many :game_locations
 
 end

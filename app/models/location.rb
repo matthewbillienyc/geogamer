@@ -12,7 +12,7 @@
 #
 
 class Location < ActiveRecord::Base
-  has_many :games, through: :game_location
+  has_many :games, through: :game_locations
   has_many :game_locations
 
   has_many :clues
