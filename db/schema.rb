@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20151203143057) do
     t.integer "location_id"
     t.integer "datatype_id"
     t.string  "data"
-    t.string  "status"
+    t.string  "status",      default: "unused"
   end
 
   create_table "datatypes", force: :cascade do |t|
@@ -52,15 +52,17 @@ ActiveRecord::Schema.define(version: 20151203143057) do
     t.float    "latitude"
     t.string   "longitude"
     t.string   "float"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "status"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "status",     default: "unused"
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end

@@ -13,5 +13,5 @@ Datatype.create(dtype: 'population', lead_in: "The population of this country is
 Datatype.create(dtype: 'constitution', lead_in: "This country's constitution was ratified in: ")
 
 Clue.create(location_id: 1, datatype_id: 1, data: 'Unity and Faith until Dovre Falls')
-Clue.create(location_id: 1, datatype_id: 1, data: '5.1 million')
-Clue.create(location_id: 1, datatype_id: 1, data: '1814')
+Clue.create(location_id: 1, datatype_id: 2, data: '5.1 million')
+Clue.create(location_id: 1, datatype_id: 3, data: '1814')
