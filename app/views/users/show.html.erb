@@ -1,0 +1,23 @@
+<div class="user_show">
+	<div class="container">
+
+		<div class="row">
+
+			<div class="col-xs-4">
+				<div class="gradient-box user_name">
+					<h2><%=@user.name%></h2>
+					<p><%=@user.email%></p>	
+				</div>
+
+				<%=form_for @game do |f| %>
+					<%f.submit "Start a new game"%>
+				<%end%> 
+			</div>
+
+			<div class="col-xs-8 user_records">
+
+			</div>
+
+		</div>
+	</div>
+</div>
