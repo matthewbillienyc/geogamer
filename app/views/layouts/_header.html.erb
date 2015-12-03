@@ -1,1 +1,14 @@
-_header.html.erb
+NAVBAR<br>
+
+<% if logged_in? %>
+  <p>IT WORKS</p><br>
+  <%= current_user.name %>
+  <span><a href="logout">Logout</a></span> 
+<% elsif loggingin %>
+  <a href="signup">SIGN UP</a>
+<% else %>
+  <a href="login">LOGIN</a> &nbsp;
+  <span><a href="signup">SIGN UP</a></span>
+<% end %>
+
+<br>

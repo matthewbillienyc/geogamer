@@ -1,0 +1,6 @@
+<%= render :partial => 'layouts/header', locals: {loggingin: false} %>
+
+<p>SPLASH SCREEN HERE</p>
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
