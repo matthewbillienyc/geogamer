@@ -19,4 +19,6 @@ class Location < ActiveRecord::Base
   has_many :clues
   has_many :challenges
 
+  
+
 end
