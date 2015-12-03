@@ -5,8 +5,6 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?
   
   def index
-    # @user = User.all
-    # @game = Game.all
     render 'layouts/index'
   end
 
@@ -17,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-    !!curent_user
+    !!current_user
   end
 
 end
