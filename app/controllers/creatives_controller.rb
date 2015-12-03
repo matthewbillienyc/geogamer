@@ -4,4 +4,5 @@ class CreativesController < ApplicationController
   def index
     render 'layouts/creative'
   end
+
 end
