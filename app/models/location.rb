@@ -4,6 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  name       :string
+#  img_url    :string
 #  latitude   :float
 #  longitude  :string
 #  float      :string
