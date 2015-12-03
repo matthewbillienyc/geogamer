@@ -13,13 +13,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
-
-$(function(){
-
-  $('#reveal-clue').submit(function(e){
-    e.preventDefault()
-    debugger;
-  })
-
-})
+//= require clues

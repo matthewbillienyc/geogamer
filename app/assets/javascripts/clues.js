@@ -1,8 +1,7 @@
 $(function(){
 
-  debugger;
-
-  $("#reveal-clue").click(function(e){
+  $("#reveal-clue").on('submit', function(e){
+    e.preventDefault();
     debugger;
   })
 
