@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   root to: "homepage#index"
   # get '/creative' => 'creatives#creative'
   get 'signup' => 'users#new'
-  get    'login'   => 'sessions#new'
-  post   'login'   => 'sessions#create'
+  get 'login'   => 'sessions#new'
+  post 'login'   => 'sessions#create'
   get 'logout'  => 'sessions#destroy'
 
 end

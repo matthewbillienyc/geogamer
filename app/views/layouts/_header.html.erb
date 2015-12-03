@@ -1,14 +1,37 @@
-NAVBAR<br>
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
 
-<% if logged_in? %>
-  <p>IT WORKS</p><br>
-  <%= current_user.name %>
-  <span><a href="logout">Logout</a></span> 
-<% elsif loggingin %>
-  <a href="signup">SIGN UP</a>
-<% else %>
-  <a href="login">LOGIN</a> &nbsp;
-  <span><a href="signup">SIGN UP</a></span>
-<% end %>
+    <% if logged_in? %>
+      <p>Welcome, <%= current_user.name %>!<br></p>
+    <% end %>
 
-<br>
+    </div>
+    
+    <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <p>
+        <% if logged_in? %>
+          <a href="logout">LOGOUT&nbsp;&nbsp;&nbsp;</a>
+        <% elsif loggingin %>
+          <a href="signup">SIGN UP</a>
+        <% else %>
+          <a href="login">LOGIN</a> &nbsp; &nbsp;
+          <span><a href="signup">SIGN UP</a>&nbsp;&nbsp;</span>
+        <% end %>
+        </p>
+      </ul>
+    </div>
+
+
+  </div>
+</div>
+
+
+        
