@@ -3,13 +3,15 @@
   <p><%= flash[:alert] %></p>
 <% end %>
  <%= form_for(:session, url: login_path) do |f| %>
-
+      <p>
       <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.text_field :name %>
+      </p>
 
+      <p>
       <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-
+      <%= f.password_field :password %>
+      </p>
       <%= f.submit "Log in", class: "btn btn-primary" %>
     <% end %>
 
