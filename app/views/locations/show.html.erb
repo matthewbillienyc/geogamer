@@ -1,0 +1,23 @@
+<div class="location_show" style="background-image:url('<%= @location.img_url %>')">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-xs-4">
+				<input type='text' name='user-guess'><br>
+				<%= form_for @clue, html: {id: 'reveal-clue'}, method: 'post' do |f| %>
+					<%= f.hidden_field :location_id, :value => @location.id %>
+					<%= f.submit "Reveal Clue" %>
+				<% end %>
+				<ul class="clues">
+				</ul>
+			</div>
+
+			<div class="col-xs-8">
+				<h2><%=@location.name%></h2>
+			</div>
+
+
+
+		</div>
+	</div>
+</div>
