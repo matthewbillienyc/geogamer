@@ -12,8 +12,10 @@ class Clue < ActiveRecord::Base
   belongs_to :location
   belongs_to :datatype
 
-  def self.all_clues_for_location(location)
-    self.where('location_id = ?', location.id)
+  def self.unused_clues(location_id)
+    self.where('location_id = ? AND status = ?', location_id, "unused")
   end
+
+
 
 end
