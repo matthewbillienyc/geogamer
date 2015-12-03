@@ -14,4 +14,6 @@ class Game < ActiveRecord::Base
   has_many :locations, through: :game_locations
   has_many :game_locations
 
+  
+
 end
