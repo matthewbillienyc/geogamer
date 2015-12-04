@@ -1,31 +1,37 @@
-<%= render :partial => 'layouts/header', locals: {loggingin: false} %>
+<div class='img-background' style="background-image:url('http://alien-ufo-research.com/live-space/facebook-image.jpg')">
+  <div class='container'>
+    <div class='row'>
+      <div class='col-xs-4 gradient-box'>
+        <h3>Sign up!</h3>
 
-<h3>Sign up!</h3>
+        <%= form_for(@user) do |f| %>
+          <% if @user.errors.any? %>
+            <div id="error_explanation">
+              <h4><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h4>
 
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h4><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h4>
+              <ul>
+              <% @user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
 
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+          <div class="field">
+            <%= f.label :name %><br>
+            <%= f.text_field :name %><br>
+            <%= f.label :email %><br>
+            <%= f.email_field :email %><br>
+            <%= f.label :password %><br>
+            <%= f.password_field :password %><br>
+            <%= f.label :password_confirmation %><br>
+            <%= f.password_field :password_confirmation %><br>
+          </div>
+          <div class="actions"><br>
+            <p><%= f.submit "Sign Up"%><p>
+          </div>
+        <% end %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %><br>
-    <%= f.label :email %><br>
-    <%= f.email_field :email %><br>
-    <%= f.label :password %><br>
-    <%= f.password_field :password %><br>
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %><br>
   </div>
-  <div class="actions">
-    <%= f.submit "Sign Up"%>
-  </div>
-<% end %>
+</div>
