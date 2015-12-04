@@ -539,6 +539,16 @@ body {
     animation-delay: 1.5s;
 }
 
+.slide-left-slow {
+    position: absolute;
+    left: -500px;
+    width: 300px;
+    -webkit-animation: slide 1s forwards;
+    -webkit-animation-delay: 2.5s;
+    animation: slide 1.5s forwards;
+    animation-delay: 2s;
+}
+
 @-webkit-keyframes slide {
     100% { left: 0; }
 }
