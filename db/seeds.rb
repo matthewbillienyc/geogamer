@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.create(name: 'matt', email: 'matt@matt.com', password: 'matt', password_confirmation: 'matt')
+
 Datatype.create(dtype: 'motto', lead_in: "The motto of this country is ")
 Datatype.create(dtype: 'population', lead_in: "The population of this country is ")
 Datatype.create(dtype: 'constitution', lead_in: "This country's constitution was ratified in ")
