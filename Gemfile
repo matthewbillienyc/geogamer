@@ -30,7 +30,8 @@ gem 'rails_12factor'
 gem 'bcrypt', '~> 3.1.7'
 gem 'pry-byebug'
 gem 'nokogiri'
-
+gem 'flickr_fu'
+gem 'figaro'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
