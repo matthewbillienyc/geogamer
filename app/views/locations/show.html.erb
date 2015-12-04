@@ -2,41 +2,35 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-4">
-					<input type='text' name='user-guess'><br>
-					<%= form_for @clue, html: {id: 'reveal-clue'}, method: 'post' do |f| %>
-						<%= f.hidden_field :location_id, :value => @location.id %>
-						<%= f.submit "Reveal Clue" %>
-					<% end %>
-
-			<div class="gradient-box">
-				<input type='text' name='user-guess'><br>
-
-					<%= form_for @clue, html: {id: 'reveal-clue'},method: 'post' do |f| %>
-						<%= f.hidden_field :location_id, :value => @location.id %>
-						<%= f.submit "Reveal Clue" %>
-					<% end %>
-
-					<%=form_tag controller: "locations", action: "score" do %>
-						<%=hidden_field_tag :location_id, @location.id %>
-						<%= submit_tag "Make a Guess" %>
-					<%end%>
-
-			</div>
-
-				<ul class="clues">
-				</ul>
-		</div>
-
-			<div class="col-xs-8">
-				<div class="name" id="<%=@location.name%>">
-
+				<div class='slide-left'>
+					<div class="gradient-box top">
+						<div style='opacity:1.0;'>
+							<p>Where are you headed?</p>
+							<p>
+								<input type='text' name='user-guess'>
+								<button id='make_guess'>guess</button>
+							</p>
+							<p class='top-bar'>
+								<%= form_for @clue, html: {id: 'reveal-clue'},method: 'post' do |f| %>
+									<%= f.hidden_field :location_id, :value => @location.id %>
+									<%= f.submit "Reveal Clue" %>
+								<% end %>
+							</p>
+						</div>
+					</div>
 				</div>
-			</div>
-
-
-
-
-
 		</div>
+		<div class="col-xs-3">
+			<div class="name middle" id="<%=@location.name%>">
+			</div>
+		</div>
+		<div class='col-xs-5'>
+			<ul class="clues top">
+			</ul>
+		</div>
+
+
+
+
 	</div>
 </div>
