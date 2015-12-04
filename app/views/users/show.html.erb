@@ -1,17 +1,22 @@
-<div class="user_show">
+<div class="user_show" style="background-image:url('http://www.psdgraphics.com/file/world-map-background.jpg')">
 	<div class="container">
 
 		<div class="row">
 
 			<div class="col-xs-4">
-				<div class="gradient-box user_name">
-					<h2><%=@user.name%></h2>
-					<p><%=@user.email%></p>	
+				<div class='top'>
+					<div class='slide-left'>
+						<div class="gradient-box user_name">
+							<h2><%=@user.name%></h2>
+							<p><%=@user.email%></p>
+						</div>
+						<div class="gradient-box">
+						<%=form_for @game do |f| %>
+							<%f.submit "Start a new game"%>
+						<%end%>
+						</div>
+					</div>
 				</div>
-
-				<%=form_for @game do |f| %>
-					<%f.submit "Start a new game"%>
-				<%end%> 
 			</div>
 
 			<div class="col-xs-8 user_records">

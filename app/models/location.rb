@@ -19,6 +19,11 @@ class Location < ActiveRecord::Base
   has_many :clues
   has_many :challenges
 
-  
+  def set_clues_to_unused
+    self.clues.each do |clue|
+      clue.status = 'unused'
+      clue.save
+    end
+  end
 
 end

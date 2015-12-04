@@ -14,10 +14,15 @@ body {
     font-family: Merriweather,'Helvetica Neue',Arial,sans-serif;
 }
 
+.img-background {
+  width: 100%;
+  height: 100%;
+  background-size: 100%;
+}
 
-.gradient-box { 
+.gradient-box {
 padding: 20px;
-background-color: white;
+background-color: rgba(255,255,255,0.6);
 margin-top: 10%;
 
 /* outer shadows  (note the rgba is red, green, blue, alpha) */
@@ -30,11 +35,10 @@ margin-top: 10%;
 border-radius: 7px;
 
 /* gradients */
-background: -webkit-gradient(linear, left top, left bottom,
-color-stop(0%, white), color-stop(15%, white), color-stop(100%, #D7E9F5 ));
-background: -moz-linear-gradient(top, white 0%, white 55%, #D5E4F3  130%);
+/* background: -webkit-gradient(linear, left top, left bottom, */
+/* color-stop(0%, white), color-stop(15%, white), color-stop(100%, #D7E9F5 )); */
+/* background: -moz-linear-gradient(top, white 0%, white 55%, #D5E4F3  130%); */
 }
-
 
 hr {
     max-width: 50px;
@@ -101,10 +105,18 @@ aside {
 .navbar-default {
     border-color: rgba(34,34,34,.05);
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
-    background-color: #fff;
+    background-color: white;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+
+    /* gradients */
+    background: -webkit-gradient(linear, left top, left bottom,
+    color-stop(0%, white), color-stop(15%, white), color-stop(100%, #D7E9F5 ));
+    background: -moz-linear-gradient(top, white 0%, white 55%, #D5E4F3  130%);
 }
 
 .navbar-default .navbar-header .navbar-brand {
@@ -501,4 +513,74 @@ body {
     background-size: 100%;
     width: 100%;
     height: 100%;
+}
+
+.user_show {
+    background-size: 100%;
+    height: 100%;
+    width: 100%;
+}
+
+.top {
+  margin-top: 25%;
+}
+
+.top-bar {
+  margin-top: 10%;
+}
+
+.slide-left {
+    position: absolute;
+    left: -500px;
+    width: 300px;
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 2s;
+    animation: slide 1s forwards;
+    animation-delay: 1.5s;
+}
+
+.slide-left-slow {
+    position: absolute;
+    left: -500px;
+    width: 300px;
+    -webkit-animation: slide 1s forwards;
+    -webkit-animation-delay: 2.5s;
+    animation: slide 1.5s forwards;
+    animation-delay: 2s;
+}
+
+@-webkit-keyframes slide {
+    100% { left: 0; }
+}
+
+@keyframes slide {
+    100% { left: 0; }
+}
+
+ul {
+  list-style-type: none;
+}
+
+li.fade-in-item {
+    opacity: 0;
+    animation: new-item-animation 1s linear forwards;
+}
+
+@keyframes new-item-animation {
+    from {
+        opacity: 0;
+}
+
+    to {
+        opacity: 1;
+    }
+}
+
+.middle {
+  margin-top: 50%;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bolder;
 }
