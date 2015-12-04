@@ -4,8 +4,8 @@ module Adapters
   class DataScraper
 
     def initialize(country_name)
-      country_name_formatted = country_name.gsub(' ', '-')
-      @html = Nokogiri::HTML(open("http://country.io/#{country_name_formatted}"))
+      country_name_formatted = country_name.gsub(' ', '-').downcase
+      @html = Nokogiri::HTML(open("http://country.io/#{country_name_formatted}/"))
       extract_data_first_table
       extract_data_second_table
       extract_data_third_table
@@ -24,11 +24,11 @@ module Adapters
     end
 
     def add_first_table_data_to_hash(first_table_array)
-      datatype_data_hash[:capital]= first_table_array[10]
-      datatype_data_hash[:language]= first_table_array[13]
-      datatype_data_hash[:currency]= first_table_array[16]
-      datatype_data_hash[:GDP]= first_table_array[19]
-      datatype_data_hash[:population]= first_table_array[22]
+      datatype_data_hash[:"1"]= first_table_array[10]
+      datatype_data_hash[:"2"]= first_table_array[13]
+      datatype_data_hash[:"3"]= first_table_array[16]
+      datatype_data_hash[:"4"]= first_table_array[19]
+      datatype_data_hash[:"5"]= first_table_array[22]
     end
 
     def extract_data_second_table
@@ -41,9 +41,9 @@ module Adapters
     end
 
     def add_second_table_data_to_hash(second_table_array)
-      datatype_data_hash[:continent]= second_table_array[1]
-      datatype_data_hash[:land_area]= second_table_array[7]
-      datatype_data_hash[:terrain]= second_table_array[10]
+      datatype_data_hash[:"6"]= second_table_array[1]
+      datatype_data_hash[:"7"]= second_table_array[7]
+      datatype_data_hash[:"8"]= second_table_array[10]
     end
 
     def extract_data_third_table
@@ -56,7 +56,7 @@ module Adapters
     end
 
     def add_third_table_data_to_hash(third_table_array)
-      datatype_data_hash[:climate]= third_table_array[1]
+      datatype_data_hash[:"9"]= third_table_array[1]
     end
 
     def extract_data_neighbors
@@ -70,7 +70,7 @@ module Adapters
 
     def add_neighbors_to_hash(neighbors_array)
       neighbors_string = neighbors_array.join(', ')
-      datatype_data_hash[:neighbors]= neighbors_string
+      datatype_data_hash[:"10"]= neighbors_string
     end
 
     def extract_data_demographics
@@ -83,8 +83,8 @@ module Adapters
     end
 
     def add_demographics_data_to_hash(demographics_array)
-      datatype_data_hash[:life_expectancy]= demographics_array[1]
-      datatype_data_hash[:literacy_rate]= demographics_array[16]
+      datatype_data_hash[:"11"]= demographics_array[1]
+      datatype_data_hash[:"12"]= demographics_array[16]
     end
 
     def extract_data_roadways_and_add_to_hash
@@ -93,24 +93,24 @@ module Adapters
       roadways_array = roadways_tds.each_with_object([]) { |td, arr|
         arr << td.inner_html
       }
-      datatype_data_hash[:roadways]= roadways_array[1]
+      datatype_data_hash[:"13"]= roadways_array[1]
     end
 
     def datatype_data_hash
       @datatype_data_hash ||= {
-        "capital": "",
-        "language": "",
-        "currency": "",
-        "population": "",
-        "continent": "",
-        "land_area": "",
-        "terrain": "",
-        "climate": "",
-        "neighbors": "",
-        "life_expectancy": "",
-        "literacy_rate": "",
-        "roadways": "",
-        "GDP": ""
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": "",
+        "7": "",
+        "8": "",
+        "9": "",
+        "10": "",
+        "11": "",
+        "12": "",
+        "13": ""
       }
     end
 

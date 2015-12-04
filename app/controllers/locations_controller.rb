@@ -22,6 +22,11 @@ class LocationsController < ApplicationController
 			@location = Location.find_by(name: name)
 			redirect_to @location
 		else
+			@location = Location.new(name: name)
+			@location.scrape_data
+			@location.save
+			@location.build_clues
+			binding.pry
 			# @location.scrape_data
 			# @location.get_img_url
 			# @location.build_clues
