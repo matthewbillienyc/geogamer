@@ -176,6 +176,7 @@ DEPENDENCIES
   frontend-generators
   jbuilder (~> 2.0)
   jquery-rails
+  nokogiri
   pg
   pry
   pry-byebug
