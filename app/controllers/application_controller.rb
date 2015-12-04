@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :logged_in?, :current_score
 
   def index
     render 'layouts/index'
@@ -23,15 +23,15 @@ class ApplicationController < ActionController::Base
   end
 
   def visited_locations
-    # makes sure the same country name isnt chosen twice in one game
+    @visited_locations ||= []
   end
 
-  def already_visited?
-    # validation test visitied_locations.include?(country_name)
+  def already_visited?(location)
+    visited_locations.include?(location)
   end
 
   def current_score
-    # keeps track of current score for one game
+    session[:score] ||= 0
   end
 
 end

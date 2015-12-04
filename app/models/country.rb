@@ -147,7 +147,7 @@ class Country
     {"name": "Moldova", "code": "MD"},
     {"name": "Monaco", "code": "MC"},
     {"name": "Mongolia", "code": "MN"},
-    {"name": "Montenegro"},   
+    {"name": "Montenegro"},
     {"name": "Montserrat", "code": "MS"},
     {"name": "Morocco", "code": "MA"},
     {"name": "Mozambique", "code": "MZ"},
@@ -252,6 +252,6 @@ class Country
   end
 
   def self.choose_random_country
-    puts Country.country_list.sample[:name]
+    return Country.country_list.sample[:name]
   end
 end

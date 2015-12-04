@@ -10,9 +10,10 @@
 							</div>
 
 							<div id ='guess-div'>
-								<%= form_for @location, url: url_for(controller: 'locations', action: 'score'), html: {id: 'make_guess'}, method: 'post' do |f| %>
-									<%= f.text_field :name, value: "" %>
-									<%= f.submit "guess" %>
+								<%= form_tag url_for(action: 'score'), method: 'post', id: 'make_guess' do %>
+									<%= text_field_tag :name %>
+									<%= hidden_field_tag :score, 50 %>
+									<%= submit_tag "guess" %>
 								<% end %>
 								<!--<input type='text' name='user-guess'>
 								<button id='guess-btn'>guess</button>-->
