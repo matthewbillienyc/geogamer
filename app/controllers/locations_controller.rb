@@ -7,8 +7,13 @@ class LocationsController < ApplicationController
 	end
 
 	def score
+		binding.pry
 		@location = Location.find(params["location_id"])
+		# current_score += params[score] or some shit
+	end
 
+	def create
+		binding.pry
 	end
 
 end

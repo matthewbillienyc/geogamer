@@ -26,4 +26,16 @@ class Location < ActiveRecord::Base
     end
   end
 
+  def location_data_hash
+    @location_data_hash ||= {}
+  end
+
+  def scrape_data(country_name)
+    # initialzie DataScraper.new(country_name)
+  end
+
+  def build_clues
+    # build out clues based on scraped data
+  end
+
 end
