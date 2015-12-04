@@ -633,7 +633,7 @@ li.fade-in-item {
 .bounce {
   left:50%;
   bottom:0;
-  -webkit-animation:bounce 2s infinite;
+  -webkit-animation:bounce 2s 1;
 }
 
 @-webkit-keyframes bounce {
