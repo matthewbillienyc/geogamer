@@ -32,6 +32,11 @@ class Location < ActiveRecord::Base
     @location_data_hash ||= {}
   end
 
+  def get_img_url
+    url_fetcher = Adapters::FlickrConnection.new
+    self.img_url = url_fetcher.get_photo_url(self.name)
+  end
+
   def scrape_data()
     @scraper = Adapters::DataScraper.new(self.name)
   end
