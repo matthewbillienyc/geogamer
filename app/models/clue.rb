@@ -11,6 +11,7 @@
 class Clue < ActiveRecord::Base
   belongs_to :location
   belongs_to :datatype
+  validates_presence_of :data
 
   def self.unused_clues(location_id)
     self.where('location_id = ? AND status = ?', location_id, "unused")

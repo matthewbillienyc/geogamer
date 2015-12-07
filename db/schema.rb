@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(version: 20151207162112) do
     t.string   "float"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-    t.string   "status",     default: "unused"
   end
 
   create_table "users", force: :cascade do |t|

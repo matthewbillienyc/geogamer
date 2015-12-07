@@ -9,4 +9,6 @@
 
 class Datatype < ActiveRecord::Base
   has_many :clues
+  validates_presence_of :dtype
+  validates_uniqueness_of :dtype
 end
