@@ -6,6 +6,7 @@ module Adapters
     def initialize(country_name)
       country_name_formatted = country_name.gsub(' ', '-').downcase
       @html = Nokogiri::HTML(open("http://country.io/#{country_name_formatted}/"))
+      binding.pry
       extract_data_first_table
       # extract_data_second_table
       # extract_data_third_table

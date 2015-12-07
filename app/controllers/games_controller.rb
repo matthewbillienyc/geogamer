@@ -4,8 +4,9 @@ class GamesController < ApplicationController
 		@game = Game.create
 		@game.user = current_user
 		@game.save
-		session[:game] = @game
-		binding.pry
+		current_game = @game
+    binding.pry
+    session[:game_id] = @game.id
 		redirect_to startlocation_path
 		# redirect_to :controller => 'locations', :action => 'create'
 	end
