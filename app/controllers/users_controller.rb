@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-before_action :require_admin, only: [:destroy]
-  
+before_action :require_admin, only: [:destroy, :index]
+
   def index
     @users = User.all
   end
@@ -36,7 +36,7 @@ private
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 
-  def require_admin 
+  def require_admin
     if logged_in? && !current_user.admin?
       flash[:danger] = "Only admin users can perform that action"
       redirect_to root_path
