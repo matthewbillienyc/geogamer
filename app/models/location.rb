@@ -26,4 +26,20 @@ class Location < ActiveRecord::Base
     end
   end
 
+  def location_data_hash
+    @location_data_hash ||= {}
+  end
+
+  def scrape_data()
+    @scraper = Adapters::DataScraper.new(self.name)  
+  end
+
+  def build_clues
+    @scraper.datatype_data_hash.each do |datatype_id, data|
+      clue = Clue.create({datatype_id: datatype_id.to_s.to_i, location_id: self.id, data: data})
+
+    end
+    # build out clues based on scraped data
+  end
+
 end

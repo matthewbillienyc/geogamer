@@ -16,6 +16,4 @@ class Clue < ActiveRecord::Base
     self.where('location_id = ? AND status = ?', location_id, "unused")
   end
 
-
-
 end
