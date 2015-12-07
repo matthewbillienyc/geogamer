@@ -22,16 +22,4 @@ class ApplicationController < ActionController::Base
     @current_game ||= Game.find_by(id: session[:game_id])
   end
   
-  def visited_locations
-    @visited_locations ||= []
-  end
-
-  def already_visited?(location)
-    visited_locations.include?(location)
-  end
-
-  def current_score
-    session[:score]
-  end
-
 end

@@ -52,9 +52,9 @@ ActiveRecord::Schema.define(version: 20151207162112) do
 
   create_table "games", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "score", default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "score",      default: 0
   end
 
   create_table "locations", force: :cascade do |t|
@@ -63,17 +63,17 @@ ActiveRecord::Schema.define(version: 20151207162112) do
     t.float    "latitude"
     t.string   "longitude"
     t.string   "float"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.string   "status",     default: "unused"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.boolean  "admin",           default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
 end
