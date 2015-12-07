@@ -9,4 +9,7 @@ class GamesController < ApplicationController
 		# redirect_to :controller => 'locations', :action => 'create'
 	end
 
+	def won
+	end
+
 end

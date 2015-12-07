@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :games
 
   root to: "homepage#index"
-  
+
   # get '/creative' => 'creatives#creative'
   get 'signup' => 'users#new'
   get 'login'   => 'sessions#new'
@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   get 'logout'  => 'sessions#destroy'
   post 'score' => 'locations#score'
   get '/startlocation' => 'locations#create'
+  get '/won' => 'games#won'
 
 end
