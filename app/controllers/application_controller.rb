@@ -18,13 +18,9 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
-  def current_game=(game)
-    # keeps track of game so locations can be given that games id
-    @current_game = game
-  end
-
   def current_game
-    @current_game
+    # keeps track of game so locations can be given that games id
+    @current_game = Game.find_by(id: session[:game_id])
   end
 
   def visited_locations
