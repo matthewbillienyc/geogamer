@@ -6,6 +6,8 @@ class LocationsController < ApplicationController
 		visited_locations.push(@location.name)
 		@location.set_clues_to_unused
 		@clue = Clue.new()
+		binding.pry
+		GameLocation.create({location_id: @location.id, game_id: current_game.id})
 	end
 
 	def score
