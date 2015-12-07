@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20151207162112) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "score", default: 0
+    t.integer  "score"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -72,8 +72,9 @@ ActiveRecord::Schema.define(version: 20151207162112) do
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.boolean  "admin",           default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
 end
