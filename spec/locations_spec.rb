@@ -14,7 +14,6 @@ describe Location, type: :model do
 		end
 	end
 
-
 	# context "Class methods" do
 	# 	# let(:location) {Location.create(name: "test")}
 	# 	# let(:clue) {Clue.create({location_id: location.id, status: "used"})}
@@ -32,5 +31,3 @@ describe Location, type: :model do
 	# end
 
 end
-
-
