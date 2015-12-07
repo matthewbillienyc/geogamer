@@ -7,7 +7,6 @@ class LocationsController < ApplicationController
 		@location.set_clues_to_unused
 		@clue = Clue.new()
 		GameLocation.create({location_id: @location.id, game_id: current_game.id})
-		binding.pry
 	end
 
 	def score
@@ -28,6 +27,8 @@ class LocationsController < ApplicationController
 		else
 			@location = Location.new(name: name)
 			@location.scrape_data
+			url_fetcher = Adapters::FlickrConnection.new
+			@location.img_url = url_fetcher.get_photo_url(name)
 			@location.save
 			@location.build_clues
 			redirect_to @location
