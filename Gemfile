@@ -33,6 +33,8 @@ gem 'nokogiri'
 gem 'flickr_fu'
 gem 'figaro'
 gem 'rspec-rails', group: [:development, :test]
+gem 'rspec-rails'
+gem 'capybara'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
