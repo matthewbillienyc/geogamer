@@ -10,9 +10,11 @@
       <div class="nav navbar-nav navbar-right">
         <% if logged_in? %>
           <p class ='top-bar'>
-            <span>Score: <%= current_game.score %>&nbsp;&nbsp;&nbsp;</span>
+            <% if current_game %>
+              <span>Score: <%= current_game.score %>&nbsp;&nbsp;&nbsp;</span>
+            <% end %>
             <span>
-                Welcome, <%= current_user.name %>!&nbsp;&nbsp;&nbsp;
+                Welcome, <%= link_to current_user.name, user_path(current_user) %>!&nbsp;&nbsp;&nbsp;
             </span>
             <span><%= link_to "Log Out", logout_path %>&nbsp;&nbsp;&nbsp;</span>
           </p>
