@@ -16,8 +16,12 @@ module Adapters
     def get_data
       table_rows.each_with_index do |name, index|
         row = @html.at("tr:contains('#{name}')")
+        blanks = ["-", "%", "None", "", "years"]
         if row
-          datatype_data_hash["#{index+1}"]= row.css('td')[1].inner_html
+          data = row.css('td')[1].inner_html
+          unless blanks.include?(data)
+            datatype_data_hash["#{index+1}"]= data
+          end
         end
       end
     end
