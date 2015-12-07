@@ -19,8 +19,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_game
-    # keeps track of game so locations can be given that games id
-    @current_game = Game.find_by(id: session[:game_id])
+    @current_game ||= Game.find_by(id: session[:game_id])
   end
 
   def visited_locations
@@ -32,7 +31,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_score
-    session[:score] ||= 0
+    session[:score]
   end
 
 end

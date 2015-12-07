@@ -6,6 +6,7 @@ class LocationsController < ApplicationController
 		visited_locations.push(@location.name)
 		@location.set_clues_to_unused
 		@clue = Clue.new()
+		GameLocation.create({location_id: @location.id, game_id: current_game.id})
 	end
 
 	def score
@@ -15,7 +16,6 @@ class LocationsController < ApplicationController
 
 
 	def create
-		binding.pry	
 		name = Country.choose_random_country
 		while already_visited?(name)
 			name = Country.choose_random_country
@@ -29,12 +29,7 @@ class LocationsController < ApplicationController
 			@location.save
 			@location.build_clues
 			redirect_to @location
-			# @location.scrape_data
-			# @location.get_img_url
-			# @location.build_clues
-			# @location.save
-			# redirect_to show
 		end
-			end
+	end
 
 end
