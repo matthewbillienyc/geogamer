@@ -18,6 +18,7 @@ class Location < ActiveRecord::Base
 
   has_many :clues
   has_many :challenges
+  validates_presence_of :name
 
   validates_presence_of :name
   validates_uniqueness_of :name
@@ -34,13 +35,12 @@ class Location < ActiveRecord::Base
   end
 
   def scrape_data()
-    @scraper = Adapters::DataScraper.new(self.name)  
+    @scraper = Adapters::DataScraper.new(self.name)
   end
 
   def build_clues
     @scraper.datatype_data_hash.each do |datatype_id, data|
       clue = Clue.create({datatype_id: datatype_id.to_s.to_i, location_id: self.id, data: data})
-
     end
     # build out clues based on scraped data
   end
