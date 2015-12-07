@@ -2,8 +2,10 @@ class LocationsController < ApplicationController
 	helper_method :current_game
 
 	def show
+		if current_game.completed?
+			redirect_to won_path
+		end
 		@location = Location.find(params[:id])
-		visited_locations.push(@location.name)
 		@location.set_clues_to_unused
 		@clue = Clue.new()
 		GameLocation.create({location_id: @location.id, game_id: current_game.id})
@@ -18,7 +20,7 @@ class LocationsController < ApplicationController
 
 	def create
 		name = Country.choose_random_country
-		while already_visited?(name)
+		while current_game.visited_locations.include?(name)
 			name = Country.choose_random_country
 		end
 		if Location.find_by(name: name)
