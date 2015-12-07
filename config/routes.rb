@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   post 'login'   => 'sessions#create'
   get 'logout'  => 'sessions#destroy'
   post 'score' => 'locations#score'
+  get '/startlocation' => 'locations#create'
 
 end

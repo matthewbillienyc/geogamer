@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+	helper_method :current_game
 
 	def show
 		@location = Location.find(params[:id])
@@ -26,6 +27,7 @@ class LocationsController < ApplicationController
 			@location.scrape_data
 			@location.save
 			@location.build_clues
+			redirect_to @location
 		end
 	end
 
