@@ -7,10 +7,12 @@ class LocationsController < ApplicationController
 		@location.set_clues_to_unused
 		@clue = Clue.new()
 		GameLocation.create({location_id: @location.id, game_id: current_game.id})
+		binding.pry
 	end
 
 	def score
-
+		current_game.score += params["score"].to_i
+		current_game.save
 	end
 
 

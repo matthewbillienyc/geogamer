@@ -6,14 +6,19 @@ module Adapters
     def initialize(country_name)
       country_name_formatted = country_name.gsub(' ', '-').downcase
       @html = Nokogiri::HTML(open("http://country.io/#{country_name_formatted}/"))
-      get_capital
-      get_currency
+      get_data
     end
 
-    def get_capital
-      capital_row = @html.at('tr:contains("Capital")')
-      if capital_row
-        datatype_data_hash["capital"]= capital_row.css('td')[1].inner_html
+    def table_rows
+      ["Capital", "Main Language", "Currency", "Population", "Continent", "Land", "Terrain", "Climate", "Natural Hazards", "Life Expectancy", "Literacy", "Roadways", "GDP"]
+    end
+
+    def get_data
+      table_rows.each_with_index do |name, index|
+        row = @html.at("tr:contains('#{name}')")
+        if row
+          datatype_data_hash["#{index+1}"]= row.css('td')[1].inner_html
+        end
       end
     end
 
@@ -34,7 +39,7 @@ end
 # 6: land area (round to 10,000 km2)
 # 7: terrain
 # 8: climate
-# 9: neighbors
+# 9: natural hazards
 # 10: life expectancy (round to 1%)
 # 11: literacy rate
 # 12: roadways (round to 1000 km)
