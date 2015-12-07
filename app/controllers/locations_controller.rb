@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+	helper_method :current_game
 
 	def show
 		@location = Location.find(params[:id])
@@ -14,6 +15,7 @@ class LocationsController < ApplicationController
 
 
 	def create
+		binding.pry	
 		name = Country.choose_random_country
 		while already_visited?(name)
 			name = Country.choose_random_country
@@ -26,7 +28,7 @@ class LocationsController < ApplicationController
 			@location.scrape_data
 			@location.save
 			@location.build_clues
-			binding.pry
+			redirect_to @location
 			# @location.scrape_data
 			# @location.get_img_url
 			# @location.build_clues
