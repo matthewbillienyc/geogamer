@@ -7,8 +7,8 @@ module Adapters
       country_name_formatted = country_name.gsub(' ', '-').downcase
       @html = Nokogiri::HTML(open("http://country.io/#{country_name_formatted}/"))
       extract_data_first_table
-      extract_data_second_table
-      extract_data_third_table
+      # extract_data_second_table
+      # extract_data_third_table
       extract_data_neighbors
       extract_data_demographics
       extract_data_roadways_and_add_to_hash

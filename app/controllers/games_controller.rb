@@ -4,8 +4,11 @@ class GamesController < ApplicationController
 		@game = Game.create
 		@game.user = current_user
 		@game.save
-		@location = Location.first
-		redirect_to @location
+		current_game = @game
+		redirect_to startlocation_path 
+		# redirect_to :controller => 'locations', :action => 'create'
 	end
 
 end
+
+
