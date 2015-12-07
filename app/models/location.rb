@@ -19,6 +19,7 @@ class Location < ActiveRecord::Base
   has_many :clues
   has_many :challenges
   validates_presence_of :name
+  validates_uniqueness_of :name
 
   def set_clues_to_unused
     self.clues.each do |clue|
