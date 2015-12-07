@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   def current_game
     @current_game ||= Game.find_by(id: session[:game_id])
   end
-
+  
   def visited_locations
     @visited_locations ||= []
   end
