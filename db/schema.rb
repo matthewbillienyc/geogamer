@@ -52,9 +52,9 @@ ActiveRecord::Schema.define(version: 20151207215149) do
 
   create_table "games", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.integer  "score"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "score",            default: 0
     t.integer  "last_location_id"
   end
 

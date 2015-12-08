@@ -1,0 +1,12 @@
+<div>
+  <p>
+    Game date: <%= game.created_at %>
+  </p>
+  <ul>
+  <% game.locations.each do |location| %>
+    <li>
+      <span><%= location.name %><span><br><span class='center-info'><img height="100" width="175" src="<%= location.img_url %>"></span>
+    </li>
+  <% end %>
+  </ul>
+</div>
