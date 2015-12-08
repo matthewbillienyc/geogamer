@@ -16,3 +16,4 @@
 //= require clues
 //= require locations
 //= require users
+//= require chart
