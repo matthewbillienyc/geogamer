@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :clues
   resources :users
   resources :games
+  namespace :admin do
+    resources :users
+  end
 
   root to: "homepage#index"
 

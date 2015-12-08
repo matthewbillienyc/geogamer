@@ -14,9 +14,6 @@ describe 'User signup, login and logout' do
 
       click_button 'Sign Up'
       expect(page).to have_text('Welcome')
-    end
-
-    it 'saves new user' do
       expect(User.find_by(name: "Junior")).to be_instance_of(User)
     end
 
@@ -27,7 +24,7 @@ describe 'User signup, login and logout' do
       fill_in('user[email]', with: 'junior@junior.com')
       fill_in('user[password]', with: 'junior')
       fill_in('user[password_confirmation]', with: 'junior')
-      
+
       click_button 'Sign Up'
       expect(page).to have_text('error')
     end
@@ -46,7 +43,7 @@ describe 'User signup, login and logout' do
   end
 
   context 'logging out' do
-    it "can log out" do 
+    it "can log out" do
       visit 'login'
 
       fill_in('session[email]', with: 'senior@senior.com')
@@ -54,19 +51,19 @@ describe 'User signup, login and logout' do
 
       click_button 'Log in'
       expect(page).to have_link('Log Out')
-      
+
       click_link 'Log Out'
       expect(page).to have_text('You are tracking a mysterious figure.')
     end
 
-    it "can succesfully log out and redirect to root" do 
+    it "can succesfully log out and redirect to root" do
       visit 'login'
 
       fill_in('session[email]', with: 'senior@senior.com')
       fill_in('session[password]', with: 'senior')
 
       click_button 'Log in'
-      
+
       click_link 'Log Out'
       expect(page).to have_text('You are tracking a mysterious figure.')
     end
@@ -74,4 +71,3 @@ describe 'User signup, login and logout' do
   end
 
 end
-
