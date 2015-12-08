@@ -15,7 +15,7 @@ $(function(){
 		var guess = $("#name").val();
 		var answer = $('.name').attr('id')
 		if (guess.toLowerCase() == answer.toLowerCase()) {
-			$('.name').append("<div class='correct-answer-box fade-in-item center-info'><p>Correct!</p><h1>"+answer+"</h1></div>")
+			$('.name').append("<div class='correct-answer-box fade-in-item center-info'><p>Correct!</p><h3>"+answer+"</h3></div>")
 			$("#guess-div").hide();
 			$('.next-loc-div').fadeIn(3000, 'swing');
 			$('.button-div').fadeOut(3000, 'swing');

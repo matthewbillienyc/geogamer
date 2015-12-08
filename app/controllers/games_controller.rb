@@ -10,6 +10,15 @@ class GamesController < ApplicationController
 	end
 
 	def won
+		current_game.status = "completed"
+		current_game.save
+		@score = current_game.score
+		session[:game_id] = nil
+	end
+
+	def show
+		@game = Game.find(params["id"])
+		render :partial => "games/game", locals: {:game => @game}
 	end
 
 end

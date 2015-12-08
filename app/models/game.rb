@@ -18,12 +18,17 @@ class Game < ActiveRecord::Base
   has_many :clues, through: :game_clues
 
   def visited_location_names
-    self.locations.each_with_object([]) do |location, arr|
-      arr << location.name
+    self.locations.map do |location|
+      location.name
     end
   end
 
+  def truncated_date
+    created_at.to_s[0..9]
+  end
+
   def pick_new_location_name
+    # find those that have not been used/chosen - and then select something random
     name = Country.choose_random_country
     while self.visited_location_names.include?(name)
       name = Country.choose_random_country
@@ -32,11 +37,7 @@ class Game < ActiveRecord::Base
   end
 
   def completed?
-    if self.locations.length > 4
-      true
-    else
-      false
-    end
+    self.locations.length > 1
   end
 
 end

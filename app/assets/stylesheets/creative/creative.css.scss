@@ -24,6 +24,7 @@ body {
   padding: 20px;
   background-color: rgba(255,255,255,0.9);
   margin-top: 10%;
+  width: 100%;
 
   /* outer shadows  (note the rgba is red, green, blue, alpha) */
   -webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4);
@@ -532,9 +533,12 @@ body {
 }
 
 .user_show {
-    background-size: 100%;
+    background-color: #000099;
     height: 100%;
-    width: 100%;
+    margin: 0;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .top {
@@ -595,6 +599,8 @@ li.fade-in-item {
 .middle {
   margin-top: 50%;
 }
+
+
 
 .logo {
   font-size: 20px;
@@ -668,4 +674,32 @@ li.fade-in-item {
   margin-top: 95%;
   width: 150px;
   height: 75px;
+}
+
+.top-list {
+  margin-top: 50%;
+}
+
+.button{
+border:1px solid #a8c2c3; -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px;font-size:12px;font-family:arial, helvetica, sans-serif; padding: 10px 10px 10px 10px; text-decoration:none; display:inline-block;font-weight:bold; color: #000000;
+ background-color: #C9D9DA; background-image: -webkit-gradient(linear, left top, left bottom, from(#C9D9DA), to(#A6A9B3));
+ background-image: -webkit-linear-gradient(top, #C9D9DA, #A6A9B3);
+ background-image: -moz-linear-gradient(top, #C9D9DA, #A6A9B3);
+ background-image: -ms-linear-gradient(top, #C9D9DA, #A6A9B3);
+ background-image: -o-linear-gradient(top, #C9D9DA, #A6A9B3);
+ background-image: linear-gradient(to bottom, #C9D9DA, #A6A9B3);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#C9D9DA, endColorstr=#A6A9B3);
+}
+
+.button:hover{
+ border:1px solid #8caeb1;
+ background-color: #abc4c5; background-image: -webkit-gradient(linear, left top, left bottom, from(#abc4c5), to(#8a8e9c));
+ background-image: -webkit-linear-gradient(top, #abc4c5, #8a8e9c);
+ background-image: -moz-linear-gradient(top, #abc4c5, #8a8e9c);
+ background-image: -ms-linear-gradient(top, #abc4c5, #8a8e9c);
+ background-image: -o-linear-gradient(top, #abc4c5, #8a8e9c);
+ background-image: linear-gradient(to bottom, #abc4c5, #8a8e9c);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#abc4c5, endColorstr=#8a8e9c);
+}
+
+.bold {
+  font-weight: bolder;
 }
