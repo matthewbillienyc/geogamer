@@ -13,6 +13,8 @@ class GamesController < ApplicationController
 	end
 
 	def show
+		@game = Game.find(params["id"])
+		render :partial => "games/game", locals: {:game => @game}
 	end
 
 end
