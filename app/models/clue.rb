@@ -18,4 +18,23 @@ class Clue < ActiveRecord::Base
     # self.where('location_id = ? AND status = ?', location_id, "unused")
   end
 
+
+  def self.random_easy_clue(location_id)
+  	where(location_id: location_id, status: 'unused').select do |clue|
+  		clue.datatype.difficulty == "easy"
+  	end.sample
+  end
+
+  def self.random_medium_clue(location_id)
+  	where(location_id: location_id, status: 'unused').select do |clue|
+  		clue.datatype.difficulty == "medium"
+  	end.sample
+  end
+
+  def self.random_hard_clue(location_id)
+  	where(location_id: location_id, status: 'unused').select do |clue|
+  		clue.datatype.difficulty == "hard"
+  	end.sample
+  end
+
 end

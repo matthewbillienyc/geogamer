@@ -14,6 +14,9 @@ describe 'User signup, login and logout' do
 
       click_button 'Sign Up'
       expect(page).to have_text('Welcome')
+    end
+
+    it 'saves new user' do
       expect(User.find_by(name: "Junior")).to be_instance_of(User)
     end
 

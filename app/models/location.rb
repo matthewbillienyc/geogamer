@@ -48,4 +48,8 @@ class Location < ActiveRecord::Base
     # build out clues based on scraped data
   end
 
+  def used_clues_count
+    Clue.where(location_id: self.id, status: "used").length
+  end
+
 end

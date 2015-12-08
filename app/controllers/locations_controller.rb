@@ -2,18 +2,22 @@ class LocationsController < ApplicationController
 	helper_method :current_game
 
 	def show
-		if current_game.completed?
-			redirect_to won_path
-		end
 		@location = Location.find(params[:id])
 		@location.set_clues_to_unused
 		@clue = Clue.new()
 		GameLocation.find_or_create_by({game_id: current_game.id, location_id: @location.id})
 		current_game.last_location_id = @location.id
 <<<<<<< HEAD
+<<<<<<< HEAD
 		# binding.pry
 =======
 >>>>>>> 1b8597bfcae73771de48842a152e85de63390abc
+=======
+		current_game.save
+		if current_game.completed?
+			redirect_to won_path
+		end
+>>>>>>> 304a7a2682738f5a51c6c9baf3a5cb985b3fc28d
 	end
 
 	def score
