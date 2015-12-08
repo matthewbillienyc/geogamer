@@ -17,10 +17,6 @@ describe 'User signup, login and logout' do
       expect(User.find_by(name: "Junior")).to be_instance_of(User)
     end
 
-    it 'saves new user' do
-      # binding.pry
-    end
-
     it 'cannot sign up user with an email already being used' do
       visit 'signup'
       User.create({name: "Junior", email: "junior@junior.com", password: 'junior', password_confirmation: 'junior'})
