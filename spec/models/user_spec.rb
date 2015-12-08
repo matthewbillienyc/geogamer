@@ -26,7 +26,7 @@ describe 'User signup, login and logout' do
       fill_in('user[password_confirmation]', with: 'junior')
 
       click_button 'Sign Up'
-      expect(page).to have_text('error')
+      expect(page).to have_text('Welcome')
     end
 
     it 'remains logged in after signing up' do
