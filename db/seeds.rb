@@ -24,3 +24,34 @@ Datatype.create(dtype: 'life expectancy', lead_in: "This country's life expectan
 Datatype.create(dtype: 'literacy rate', lead_in: 'This country has a literacy rate of ')
 Datatype.create(dtype: 'roadways', lead_in: "This country's roads measure ")
 Datatype.create(dtype: 'GDP', lead_in: 'The GDP of this country is ')
+<<<<<<< Updated upstream
+=======
+
+matt_game = matt.games.create
+norway = matt_game.locations.create(name: "Norway")
+chile = matt_game.locations.create(name: "Chile")
+argentina = matt_game.locations.create(name: "Argentina")
+
+may_game = may.games.create
+norway = may_game.locations.create(name: "Norway")
+chile = may_game.locations.create(name: "Chile")
+argentina = may_game.locations.create(name: "Argentina")
+brazil = may_game.locations.create(name: "Brazil")
+
+norway.scrape_data
+norway.get_img_url
+norway.save
+norway.build_clues
+chile.scrape_data
+chile.get_img_url
+chile.save
+chile.build_clues
+argentina.scrape_data
+argentina.get_img_url
+argentina.save
+argentina.build_clues
+brazil.scrape_data
+brazil.get_img_url
+brazil.save
+brazil.build_clues
+>>>>>>> Stashed changes

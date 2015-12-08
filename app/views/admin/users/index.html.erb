@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="top-bar">
+  <h3>List of all users</h3>
+      <% @users.each do |user| %>
+        <ul>
+        <li><h4><%= user.name.capitalize %></h4></li>
+        <li>Email: <%= user.email %></li>
+        <li>Total number of games played: <%= user.total_games %></li>
+        <li>Average clues used per game: <%= user.average_clues_per_game %></li>
+        <li><%= link_to "Delete this user", admin_user_path(user), method: :delete, data: {confirm: "Are you sure you want to delete this user?"} %></li>
+        </ul>
+      <% end %>
+
+  </div>
+</div>
