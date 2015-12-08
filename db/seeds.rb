@@ -30,14 +30,14 @@ norway = matt_game.locations.create(name: "Norway")
 chile = matt_game.locations.create(name: "Chile")
 argentina = matt_game.locations.create(name: "Argentina")
 norway.scrape_data
-norway.img_url = "http://www.demilked.com/magazine/wp-content/uploads/2014/12/norway-landscape-photography-scandinavian-nature-4.jpg"
+norway.get_img_url
 norway.save
 norway.build_clues
 chile.scrape_data
-chile.img_url = "http://www.pageresource.com/wallpapers/wallpaper/chile-landscape-mac-apple-lago-pehoe.jpg"
+chile.get_img_url
 chile.save
 chile.build_clues
 argentina.scrape_data
-argentina.img_url = "http://hayo.co/vigor/wp-content/uploads/2014/10/PATAGONIA-coer.jpg"
+argentina.get_img_url
 argentina.save
 argentina.build_clues
