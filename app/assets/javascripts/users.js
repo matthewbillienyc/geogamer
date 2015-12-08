@@ -1,7 +1,7 @@
 $(function(){
 
   $(".games-list").hide();
-  $(".game-show").hide()
+  // $(".game-show").hide()
 
   $(".past-games").on('click', function(){
     $(".games-list").toggle()
