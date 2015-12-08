@@ -1,4 +1,4 @@
-<div class="user_show">
+<body class="user_show">
 	<div class="container">
 
 		<div class="row">
@@ -9,11 +9,11 @@
 						<div class="gradient-box user_name">
 							<h2><%=@user.name%></h2>
 							<p><%=@user.email%></p>
-							<p><button>Past games</button></p>
+							<p><button class='button past-games'>show/hide games</button></p>
 						</div>
 						<div class="gradient-box">
 						<%=form_for @game do |f| %>
-							<%f.submit "Start a new game"%>
+							<%f.submit "Start a new game", class: 'button' %>
 						<%end%>
 						</div>
 					</div>
@@ -21,21 +21,23 @@
 			</div>
 
 			<div class="col-xs-3">
-				<div class="gradient-box top-list">
+				<div class="gradient-box top-list games-list fade-in-item">
 					<ul>
-					<% @user.games.each do |game| %>
-						<li>Game: <%= game.truncated_date %></li>
+					<% @user.games.each_with_index do |game| %>
+						<p>
+							<%= form_for game, url: url_for(controller: 'games', action: 'show'), method: 'get', html: {class: 'game-form'} do |f| %>
+								<%= f.submit game.truncated_date, class: 'button' %>
+							<% end %>
+						</p>
 					<% end %>
 				</div>
 			</div>
 			<div class='col-xs-5'>
-				<div class="gradient-box top">
-					<% @user.games.each do |game| %>
-						<%= render partial: 'games/game', locals: {game: game} %>
-					<% end %>
+				<div class="gradient-box game-show top">
+					<div class='game-display'></div>
 				</div>
 			</div>
 
 		</div>
 	</div>
-</div>
+</body

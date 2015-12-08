@@ -8,9 +8,8 @@ class LocationsController < ApplicationController
 		@location = Location.find(params[:id])
 		@location.set_clues_to_unused
 		@clue = Clue.new()
-		current_game.locations.push(@location)
+		GameLocation.find_or_create_by({game_id: current_game.id, location_id: @location.id})
 		current_game.last_location_id = @location.id
-		binding.pry
 	end
 
 	def score

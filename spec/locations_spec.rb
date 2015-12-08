@@ -3,14 +3,18 @@ describe Location, type: :model do
 
 	context "Location validations" do
 		it "location is valid" do
-			expect(Location.new(name: "Norway")).to be_valid
+			norway = Location.new(name: "Norway")
+			expect(norway).to be_valid
 		end
 		it "location is invalid" do
-			expect(Location.new()).to_not be_valid
+			unnamed = Location.new()
+			expect(unnamed).to_not be_valid
 		end
 		it "is invalid without unique name" do
 			test_location = Location.new(name: "test")
-			expect(Location.new(name: "test")).to_not be_valid
+			test_location.save
+			test_2 = Location.new(name: "test")
+			expect(test_2).to_not be_valid
 		end
 	end
 

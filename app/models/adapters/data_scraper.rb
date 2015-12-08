@@ -16,7 +16,7 @@ module Adapters
     def get_data
       table_rows.each_with_index do |name, index|
         row = @html.at("tr:contains('#{name}')")
-        blanks = ["-", "%", "None", "", "years", "km", " years", " km", "None km"]
+        blanks = ["-", "%", "None", "", "years", "km", " years", " km", "None km", "$"]
         if row
           data = row.css('td')[1].inner_html
           unless blanks.include?(data)
