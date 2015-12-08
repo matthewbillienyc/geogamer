@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'User signup, login and logout' do
-
+User.destroy_all
 
   context 'when signing up as new user' do
 
