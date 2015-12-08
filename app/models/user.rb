@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
       games.map { |game|
         game.locations.length
       }.inject(:+)
+    else
+      0
     end
   end
 
@@ -23,6 +25,8 @@ class User < ActiveRecord::Base
       games.map { |game|
         game.clues.length
       }.inject(:+)
+    else
+      0
     end
   end
 
