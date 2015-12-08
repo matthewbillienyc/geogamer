@@ -1,4 +1,4 @@
-<div class="user_show" style="background-image:url('http://www.psdgraphics.com/file/world-map-background.jpg')">
+<div class="user_show">
 	<div class="container">
 
 		<div class="row">
@@ -9,6 +9,7 @@
 						<div class="gradient-box user_name">
 							<h2><%=@user.name%></h2>
 							<p><%=@user.email%></p>
+							<p><button>Past games</button></p>
 						</div>
 						<div class="gradient-box">
 						<%=form_for @game do |f| %>
@@ -19,8 +20,20 @@
 				</div>
 			</div>
 
-			<div class="col-xs-8 user_records">
-
+			<div class="col-xs-3">
+				<div class="gradient-box top-list">
+					<ul>
+					<% @user.games.each do |game| %>
+						<li>Game: <%= game.truncated_date %></li>
+					<% end %>
+				</div>
+			</div>
+			<div class='col-xs-5'>
+				<div class="gradient-box top">
+					<% @user.games.each do |game| %>
+						<%= render partial: 'games/game', locals: {game: game} %>
+					<% end %>
+				</div>
 			</div>
 
 		</div>
