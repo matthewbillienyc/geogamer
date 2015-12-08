@@ -12,4 +12,7 @@ class GamesController < ApplicationController
 	def won
 	end
 
+	def show
+	end
+
 end

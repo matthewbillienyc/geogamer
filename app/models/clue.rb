@@ -14,7 +14,8 @@ class Clue < ActiveRecord::Base
   validates_presence_of :data, :location_id
 
   def self.unused_clues(location_id)
-    self.where('location_id = ? AND status = ?', location_id, "unused")
+    self.where(location_id: location_id, status: 'unused')
+    # self.where('location_id = ? AND status = ?', location_id, "unused")
   end
 
 end
