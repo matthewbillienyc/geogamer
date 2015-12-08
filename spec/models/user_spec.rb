@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'User signup, login and logout' do
-  User.destroy_all
+
 
   context 'when signing up as new user' do
 
@@ -14,15 +14,16 @@ describe 'User signup, login and logout' do
 
       click_button 'Sign Up'
       expect(page).to have_text('Welcome')
+      expect(User.find_by(name: "Junior")).to be_instance_of(User)
     end
 
     it 'saves new user' do
-      expect(User.find_by(name: "Junior")).to be_instance_of(User)
+      # binding.pry
     end
 
     it 'cannot sign up user with an email already being used' do
       visit 'signup'
-
+      User.create({name: "Junior", email: "junior@junior.com", password: 'junior', password_confirmation: 'junior'})
       fill_in('user[name]', with: 'Junior')
       fill_in('user[email]', with: 'junior@junior.com')
       fill_in('user[password]', with: 'junior')
@@ -34,7 +35,6 @@ describe 'User signup, login and logout' do
 
     it 'remains logged in after signing up' do
       visit 'signup'
-
       fill_in('user[name]', with: 'Senior')
       fill_in('user[email]', with: 'senior@senior.com')
       fill_in('user[password]', with: 'senior')
@@ -49,6 +49,7 @@ describe 'User signup, login and logout' do
     it "can log out" do
       visit 'login'
 
+      User.create({name: "Senior", email: "senior@senior.com", password: 'senior', password_confirmation: 'senior'})
       fill_in('session[email]', with: 'senior@senior.com')
       fill_in('session[password]', with: 'senior')
 
@@ -61,6 +62,7 @@ describe 'User signup, login and logout' do
 
     it "can succesfully log out and redirect to root" do
       visit 'login'
+      User.create({name: "Senior", email: "senior@senior.com", password: 'senior', password_confirmation: 'senior'})
 
       fill_in('session[email]', with: 'senior@senior.com')
       fill_in('session[password]', with: 'senior')
