@@ -20,7 +20,6 @@ before_action :require_admin, only: [:destroy, :index]
   end
 
   def show
-    binding.pry
     @user = current_user
     @userviewobject = UserViewObject.new(@user)
     @game = Game.new
