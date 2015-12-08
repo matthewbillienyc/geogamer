@@ -18,20 +18,4 @@ describe Location, type: :model do
 		end
 	end
 
-	# context "Class methods" do
-	# 	# let(:location) {Location.create(name: "test")}
-	# 	# let(:clue) {Clue.create({location_id: location.id, status: "used"})}
-	# 	describe "#set_clues_to_unused" do
-	# 		it 'should reset clue status' do
-	# 			location = Location.create(name: "test")
-	# 			clue = Clue.create({location_id: location.id, status: "used"})
-
-	# 			binding.pry
-
-	# 			location.set_clues_to_unused
-	# 			expect(clue.status).to eq("unused")
-	# 		end
-	# 	end
-	# end
-
 end
