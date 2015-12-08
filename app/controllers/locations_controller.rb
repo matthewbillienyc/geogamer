@@ -10,7 +10,7 @@ class LocationsController < ApplicationController
 		@clue = Clue.new()
 		current_game.locations.push(@location)
 		current_game.last_location_id = @location.id
-		binding.pry
+		# binding.pry
 	end
 
 	def score
