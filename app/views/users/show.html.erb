@@ -34,7 +34,17 @@
 			</div>
 			<div class='col-xs-5'>
 				<div class="gradient-box game-show top">
-					<div class='game-display'></div>
+					<div class='user-stats'>
+						<p>
+							Total games played: <%= @userviewobject.total_games_response %>
+						</p>
+						<p>
+							Total locations visited: <%= @userviewobject.total_locations_response %>
+						</p>
+						<p>
+							Total clues used: <%= @userviewobject.total_clues_response %>
+						</p>
+					</div>
 				</div>
 			</div>
 
