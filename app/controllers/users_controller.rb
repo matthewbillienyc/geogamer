@@ -21,6 +21,7 @@ before_action :require_admin, only: [:destroy, :index]
 
   def show
     @user = current_user
+    @userviewobject = UserViewObject.new(@user)
     @game = Game.new
   end
 
