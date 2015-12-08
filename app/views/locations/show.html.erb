@@ -12,11 +12,9 @@
 							<div id ='guess-div'>
 								<%= form_tag url_for(action: 'score'), method: 'post', id: 'make_guess' do %>
 									<%= text_field_tag :name %>
-									<%= hidden_field_tag :score, 50 %>
+									<%= hidden_field_tag :score, 60 %>
 									<%= submit_tag "guess" %>
 								<% end %>
-								<!--<input type='text' name='user-guess'>
-								<button id='guess-btn'>guess</button>-->
 							</div>
 							<p class='top-bar'>
 								<%= form_for @clue, html: {id: 'reveal-clue'},method: 'post' do |f| %>

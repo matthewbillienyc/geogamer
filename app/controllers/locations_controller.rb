@@ -14,7 +14,9 @@ class LocationsController < ApplicationController
 	end
 
 	def score
-		current_game.score += params["score"].to_i
+		if params["score"] >= 0
+			current_game.score += params["score"].to_i
+		end
 		current_game.save
 	end
 
