@@ -35,6 +35,8 @@ gem 'figaro'
 gem 'rspec-rails', group: [:development, :test]
 gem 'rspec-rails'
 gem 'capybara'
+gem 'faker'
+gem 'fabrication'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
