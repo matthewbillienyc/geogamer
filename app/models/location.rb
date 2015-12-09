@@ -52,4 +52,8 @@ class Location < ActiveRecord::Base
     Clue.where(location_id: self.id, status: "used").length
   end
 
+  def self.most_used_location_across_games
+    joins(:games).select("locations.name, COUNT(games) AS num_games").group(:name).order("num_games DESC").first
+  end
+
 end

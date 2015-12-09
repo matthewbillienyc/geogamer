@@ -60,4 +60,8 @@ class User < ActiveRecord::Base
     locations.any?
   end
 
+  def self.user_with_most_locations
+    joins(:games, :locations).select("users.name, COUNT(locations) AS num_locations").group(:name).order("num_locations DESC").first
+  end
+
 end
