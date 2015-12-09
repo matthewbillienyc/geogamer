@@ -10,9 +10,6 @@
       <div class="nav navbar-nav navbar-right">
         <% if logged_in? %>
           <p class ='top-bar'>
-            <% if current_game %>
-              <span>Score: <%= current_game.score %>&nbsp;&nbsp;&nbsp;</span>
-            <% end %>
             <span>
                 Welcome, <%= link_to current_user.name, user_path(current_user) %>!&nbsp;&nbsp;&nbsp;
             </span>
