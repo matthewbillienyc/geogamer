@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Admin' do
+describe 'Admin', type: :feature do
 
   it 'can access Admin users page' do
     User.create({name: "admin", email: "admin@admin.com", password: 'admin', password_confirmation: 'admin', admin: true})
@@ -16,7 +16,7 @@ describe 'Admin' do
   it 'can delete user' do
     User.destroy_all
     User.create({name: "jane", email: "jane@jane.com", password: 'jane', password_confirmation: 'jane', admin: false})
-    current_user = User.create({name: "admin", email: "admin@admin.com", password: 'admin', password_confirmation: 'admin', admin: true})
+    User.create({name: "admin", email: "admin@admin.com", password: 'admin', password_confirmation: 'admin', admin: true})
     
     visit 'login'
     fill_in('session[email]', with: 'admin@admin.com')
@@ -30,7 +30,7 @@ describe 'Admin' do
 
 end
 
-describe 'Without admin privilege' do
+describe 'Without admin privilege', type: :feature do
   it 'cannot access Admin users page' do
     User.create({name: "jane", email: "jane@jane.com", password: 'jane', password_confirmation: 'jane', admin: false})
     visit 'login'
