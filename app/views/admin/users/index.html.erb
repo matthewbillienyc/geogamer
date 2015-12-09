@@ -12,7 +12,7 @@
         <li><%= @adminviewobject.average_clues_per_game_response %></li>
         <li class='bold'>Average clues per location:</li>
         <li><%= @adminviewobject.average_clues_per_location_response %></li>
-        <li><%= link_to "Delete this user", admin_user_path(user), method: :delete, data: {confirm: "Are you sure you want to delete this user?"} %></li>
+        <li class="delete"><%= link_to "Delete this user", admin_user_path(user), method: :delete, data: {confirm: "Are you sure you want to delete this user?"} %></li>
         </ul>
       <% end %>
 
