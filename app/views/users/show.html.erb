@@ -12,9 +12,15 @@
 							<p><button class='button past-games'>show/hide games</button></p>
 						</div>
 						<div class="gradient-box">
-						<%=form_for @game do |f| %>
-							<%f.submit "Start a new game", class: 'button' %>
-						<%end%>
+							<% if @userviewobject.game_in_progress? %>
+								<%= form_for @game, url: url_for(controller: 'games', action: 'continue'), method: 'get', html: {class: 'continue'} do |f| %>
+									<%= f.submit "Continue last game", class: 'button' %>
+								<% end %>
+							<% else %>
+								<%=form_for @game do |f| %>
+									<%f.submit "Start a new game", class: 'button' %>
+								<% end %>
+							<% end %>
 						</div>
 					</div>
 				</div>
