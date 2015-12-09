@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   post 'score' => 'locations#score'
   get '/startlocation' => 'locations#create'
   get '/won' => 'games#won'
+  get '/continue' => 'games#continue'
 
 end

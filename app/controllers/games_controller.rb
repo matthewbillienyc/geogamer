@@ -21,4 +21,10 @@ class GamesController < ApplicationController
 		render :partial => "games/game", locals: {:game => @game}
 	end
 
+	def continue
+		@game = Game.find(current_user.games.last.id)
+		session[:game_id] = @game.id
+		redirect_to startlocation_path
+	end
+
 end
