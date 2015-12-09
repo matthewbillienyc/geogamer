@@ -12,23 +12,11 @@ class User < ActiveRecord::Base
   end
 
   def total_locations_visited
-    if locations?
-      games.map { |game|
-        game.locations.length
-      }.inject(:+)
-    else
-      0
-    end
+    locations.length
   end
 
   def total_clues_used
-    if clues?
-      games.map { |game|
-        game.clues.length
-      }.inject(:+)
-    else
-      0
-    end
+    clues.length
   end
 
   def clues_used_for_location(location, game)
