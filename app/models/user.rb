@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :games
   has_many :locations, through: :games
-  has_many :clues, through: :locations
+  has_many :clues, through: :games
   validates_presence_of :name, :password_confirmation
   validates :email, uniqueness: :true
 
@@ -65,11 +65,11 @@ class User < ActiveRecord::Base
   end
 
   def clues?
-    locations.any?
+    false
   end
 
   def locations?
-    clues.any?
+    false
   end
 
 end
