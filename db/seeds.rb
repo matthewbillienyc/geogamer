@@ -29,8 +29,6 @@ Datatype.create(dtype: 'literacy rate', lead_in: 'This country has a literacy ra
 Datatype.create(dtype: 'roadways', lead_in: "This country's roads measure ", difficulty: "hard")
 Datatype.create(dtype: 'GDP', lead_in: 'The GDP of this country is ', difficulty: "medium")
 
-
-
 # matt_game = matt.games.create
 # norway = matt_game.locations.create(name: "Norway")
 # chile = matt_game.locations.create(name: "Chile")
@@ -50,6 +48,7 @@ Datatype.create(dtype: 'GDP', lead_in: 'The GDP of this country is ', difficulty
 
 3.times {Fabricate(:user)}
 
+#Yes, this needs to be refactored.
 User.all.each do |user|
   2.times do 
     user_game = user.games.create
@@ -63,18 +62,16 @@ User.all.each do |user|
       choosen_country.save
       choosen_country.build_clues
     end
-      user_game.save
-      user_game.locations.each do |location|
-        4.times do
-          if location.clues.sample
-            clue = location.clues.sample
-            GameClue.create({game_id: user_game.id, clue_id: clue.id})
-            user_game.save
-          end
+
+    user_game.locations.each do |location|
+      4.times do
+        if location.clues.sample
+          clue = location.clues.sample
+          GameClue.create({game_id: user_game.id, clue_id: clue.id})
+          user_game.save
         end
+      end
     end
     user_game.save
   end
-  user.save       # binding.pry
 end
-
