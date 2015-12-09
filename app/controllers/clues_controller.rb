@@ -1,9 +1,6 @@
 class CluesController < ApplicationController
 
   def create
-    # @clue = Clue.unused_clues(params["clue"]["location_id"]).sample
-
-
     location = Location.find(params["clue"]["location_id"])
 	    if (0..1).include?(location.used_clues_count)
 	    	@clue = Clue.random_hard_clue(location.id)
