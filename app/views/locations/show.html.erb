@@ -21,6 +21,9 @@
 									<%= f.hidden_field :location_id, :value => @location.id %>
 									<%= f.submit "Reveal Clue" %>
 								<% end %>
+							<p>
+								<span class='game-score tiny-text'>Game score: <%= current_game.score %></span>
+							</p>
 							</p>
 						</div>
 					</div>
