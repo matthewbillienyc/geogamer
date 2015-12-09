@@ -218,7 +218,7 @@ class Country
     {"name": "Sweden", "code": "SE"},
     {"name": "Switzerland", "code": "CH"},
     {"name": "Syria", "code": "SY"},
-    {"name": "Taiwan, Province of China", "code": "TW"},
+    {"name": "Taiwan", "code": "TW"},
     {"name": "Tajikistan", "code": "TJ"},
     {"name": "Tanzania", "code": "TZ"},
     {"name": "Thailand", "code": "TH"},
