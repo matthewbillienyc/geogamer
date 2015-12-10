@@ -20,7 +20,6 @@ class Admin::UsersController < AdminsController
 
   def destroy
     @user = User.find(params[:id])
-    binding.pry
     @user.destroy
     flash[:danger] = "User has been deleted"
     redirect_to admin_users_path

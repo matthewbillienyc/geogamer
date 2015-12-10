@@ -37,4 +37,8 @@ class UserViewObject
     end
   end
 
+  def game_in_progress?
+    @user.games.last.status == "in progress"
+  end
+
 end

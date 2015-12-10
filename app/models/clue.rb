@@ -11,6 +11,8 @@
 class Clue < ActiveRecord::Base
   belongs_to :location
   belongs_to :datatype
+  has_many :game_clues
+  has_many :games, through: :game_clues
   validates_presence_of :data, :location_id
 
   def self.unused_clues(location_id)
@@ -37,4 +39,13 @@ class Clue < ActiveRecord::Base
   	end.sample
   end
 
+  def self.most_used_clue_across_all_games
+    joins(:games).select("clues.id, COUNT(games) AS game_count").group(:id).order("game_count DESC").first
+  end
+
+  def find_clue_datatype
+    clue = Clue.find(self.id)
+    datatype = Datatype.find(clue.datatype_id)
+    datatype.dtype
+  end
 end

@@ -2,7 +2,8 @@
 class User < ActiveRecord::Base
   has_secure_password
   has_many :games
-  has_many :clues
+  has_many :locations, through: :games
+  has_many :clues, through: :games
   validates_presence_of :name, :password_confirmation
   validates :email, uniqueness: :true
 
@@ -11,23 +12,11 @@ class User < ActiveRecord::Base
   end
 
   def total_locations_visited
-    if locations?
-      games.map { |game|
-        game.locations.length
-      }.inject(:+)
-    else
-      0
-    end
+    locations.length
   end
 
   def total_clues_used
-    if clues?
-      games.map { |game|
-        game.clues.length
-      }.inject(:+)
-    else
-      0
-    end
+    clues.length
   end
 
   def clues_used_for_location(location, game)
@@ -64,27 +53,15 @@ class User < ActiveRecord::Base
   end
 
   def clues?
-    if games?
-      games.each do |game|
-        if game.clues
-          return true
-        end
-      end
-    else
-      false
-    end
+    clues.any?
   end
 
   def locations?
-    if games?
-      games.each do |game|
-        if game.locations
-          return true
-        end
-      end
-    else
-      false
-    end
+    locations.any?
+  end
+
+  def self.user_with_most_locations
+    joins(:games, :locations).select("users.name, COUNT(locations) AS num_locations").group(:name).order("num_locations DESC").first
   end
 
 end

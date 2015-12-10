@@ -13,8 +13,8 @@
 #
 
 class Location < ActiveRecord::Base
-  has_many :games, through: :game_locations
   has_many :game_locations
+  has_many :games, through: :game_locations
 
   has_many :clues
   has_many :challenges
@@ -50,6 +50,10 @@ class Location < ActiveRecord::Base
 
   def used_clues_count
     Clue.where(location_id: self.id, status: "used").length
+  end
+
+  def self.most_used_location_across_games
+    joins(:games).select("locations.name, COUNT(games) AS num_games").group(:name).order("num_games DESC").first
   end
 
 end

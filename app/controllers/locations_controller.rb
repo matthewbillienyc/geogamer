@@ -20,8 +20,17 @@ class LocationsController < ApplicationController
 >>>>>>> 304a7a2682738f5a51c6c9baf3a5cb985b3fc28d
 	end
 
+	def continue
+		@game = Game.find(current_user.games.last.id)
+		session[:game_id] = @game.id
+		@location = Location.find(@game.last_location_id)
+		@clues = @game.clues.select { |clue| clue.location_id == @location.id }
+		@clue = Clue.new()
+		render 'locations/show'
+	end
+
 	def score
-		if params["score"] >= 0
+		if params["score"].to_i >= 0
 			current_game.score += params["score"].to_i
 		end
 		current_game.save
