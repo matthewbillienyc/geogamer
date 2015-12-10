@@ -40,12 +40,12 @@ class Clue < ActiveRecord::Base
   end
 
   def self.most_used_clue_across_all_games
-    joins(:games).select("clues.id, COUNT(games) AS game_count").group(:id).order("game_count DESC").first
+    clue_id = joins(:games).select("clues.id, COUNT(games) AS game_count").group(:id).order("game_count DESC").first
+    Clue.find(clue_id)
   end
 
   def find_clue_datatype
-    clue = Clue.find(self.id)
-    datatype = Datatype.find(clue.datatype_id)
+    datatype = Datatype.find(self.datatype_id)
     datatype.dtype
   end
 end

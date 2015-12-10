@@ -44,4 +44,9 @@ class AdminViewObject
     clue_type = clue.find_clue_datatype
     "#{clue_type.capitalize}"
   end
+
+  def user_with_most_games
+    user = User.user_with_most_games
+    "#{user.capitalize_name}"
+  end
 end

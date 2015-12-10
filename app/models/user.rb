@@ -64,4 +64,9 @@ class User < ActiveRecord::Base
     joins(:games, :locations).select("users.name, COUNT(locations) AS num_locations").group(:name).order("num_locations DESC").first
   end
 
+  def self.user_with_most_games
+    user_id = joins(:games).select("users.id, COUNT(games) AS num_games").group(:id).order("num_games DESC").first
+    User.find(user_id)
+  end
+
 end
