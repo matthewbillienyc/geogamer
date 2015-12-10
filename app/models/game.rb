@@ -37,7 +37,7 @@ class Game < ActiveRecord::Base
   end
 
   def completed?
-    self.locations.length > 4
+    self.locations.length > 2
   end
 
 end

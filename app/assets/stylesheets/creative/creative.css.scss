@@ -45,7 +45,7 @@ margin-top: 10%;
 .gradient-box-alert {
 padding: 20px;
 background-color: rgba(235,104,100,0.6);
-margin-top: 10%; 
+margin-top: 10%;
 }
 
 /* outer shadows  (note the rgba is red, green, blue, alpha) */
@@ -542,7 +542,7 @@ body {
     background-color: #000099;
     height: 100%;
     margin: 0;
-    background-repeat: repeat;
+    // background-repeat: repeat;
     background-attachment: fixed;
     background-size: cover;
 }

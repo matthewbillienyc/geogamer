@@ -11,6 +11,8 @@
 class Clue < ActiveRecord::Base
   belongs_to :location
   belongs_to :datatype
+  has_many :game_clues
+  has_many :games, through: :game_clues
   validates_presence_of :data, :location_id
 
   def self.unused_clues(location_id)
@@ -35,6 +37,10 @@ class Clue < ActiveRecord::Base
   	where(location_id: location_id, status: 'unused').select do |clue|
   		clue.datatype.difficulty == "hard"
   	end.sample
+  end
+
+  def self.most_used_clue_across_all_games
+    joins(:games).select("clues.id, COUNT(games) AS game_count").group(:id).order("game_count DESC").first
   end
 
 end
