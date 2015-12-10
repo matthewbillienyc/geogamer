@@ -6,7 +6,7 @@ module Adapters
     end
 
     def get_photo_url(country_name)
-      @conn.photos.search(text: "#{country_name} tourist attraction" || "#{country_name} landscape" || "#{country_name}", content_type: 1)[rand(6)].url('large')
+      @conn.photos.search(text: "#{country_name} landscape", content_type: 1)[rand(6)].url('large')
     end
 
   end
