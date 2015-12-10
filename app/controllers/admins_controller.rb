@@ -6,4 +6,10 @@ class AdminsController < ApplicationController
     end
   end
 
+  def chart_info
+    @usergames = User.num_games_for_each_user
+    binding.pry
+    render json: @usergames
+  end
+
 end

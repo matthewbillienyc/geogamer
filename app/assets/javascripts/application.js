@@ -17,3 +17,4 @@
 //= require locations
 //= require users
 //= require chart
+//= require admin/users
