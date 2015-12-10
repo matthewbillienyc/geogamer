@@ -7,7 +7,6 @@
 						<div class="gradient-box user_name">
 							<h2><%=@user.name%></h2>
 							<p><%=@user.email%></p>
-							<p><button class='button past-games'>show/hide games</button></p>
 						</div>
 						<div class="gradient-box">
 							<% if @userviewobject.game_in_progress? %>
@@ -24,15 +23,41 @@
 				</div>
 			</div>
 
-			<div class="col-xs-3">
-				<div class="gradient-box top-list games-list fade-in-item">
-					<ul>
+			<div id='gamesList' class="col-sm-3 center-block">
+				<div class="gradient-box top-list	center-block">
+					<ul class='left-block'>
 					<% @user.games.each_with_index do |game| %>
-						<p>
-							<%= form_for game, url: url_for(controller: 'games', action: 'show'), method: 'get', html: {class: 'game-form'} do |f| %>
-								<%= f.submit game.truncated_date, class: 'button' %>
-							<% end %>
-						</p>
+							<li>
+								<!-- Button trigger modal -->
+								<button type="button" class="btn btn-primary left-block" data-toggle="modal" data-target="#myModal<%= game.id%>">
+								  Date: <%= game.truncated_date %>
+								</button>
+
+								<!-- Modal -->
+								<div class="modal fade" id='myModal<%= game.id%>' tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+								  <div class="modal-dialog" role="document">
+								    <div class="modal-content">
+								      <div class="modal-header">
+								        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								        <h4 class="modal-title" id="myModalLabel">Game date: <%= game.truncated_date %></h4>
+								      </div>
+								      <div class="modal-body">
+								        <strong>Score:</strong> <%= game.score %><br><br>
+								        <ul>
+								        <% game.locations.each do |location| %>
+								          <li class='tiny-text'>
+								            <span><strong><%= location.name %></strong><span><br><span class='center-info'><img height="100" width="175" src="<%= location.img_url %>"></span><br><br>
+								          </li>
+								        <% end %>
+								        </ul>
+								      </div>
+								      <div class="modal-footer">
+								        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								      </div>
+								    </div>
+								  </div>
+								</div>
+							</li><br><br>
 					<% end %>
 				</div>
 			</div>
