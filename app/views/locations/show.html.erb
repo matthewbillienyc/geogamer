@@ -28,12 +28,6 @@
 						</div>
 					</div>
 				</div>
-				<div class='gradient-box bottom next-loc-div'>
-					<%= form_for @location, url: url_for(controller: 'locations', action: 'create'), method: 'post', html: {id: 'next-location'} do |f| %>
-						<input type='hidden' value='0' name='clues-used'>
-						<%= f.submit "Where to next?" %>
-					<% end %>
-				</div>
 		</div>
 		<div class="col-xs-3">
 			<div class="name middle" id="<%=@location.name%>">
