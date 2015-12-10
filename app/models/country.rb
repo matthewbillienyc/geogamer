@@ -275,16 +275,45 @@ class Country
     countries_areas_continents_array
   end
 
-  def self.all_names_with_areas
+  def self.all_names_with_areas_and_continents
     @country_names_areas_continents.map do |hash| 
-        {:name => hash[:name], :area => hash[:area].gsub(',','')} unless hash[:area].include?("None")
+        {:name => hash[:name], :area => hash[:area].gsub(',',''), :continent => hash[:continent]} unless hash[:area].include?("None")
     end.compact
   end
 
   def self.all_names_by_area
-    all_names_with_areas.sort_by do |hash| 
+    all_names_with_areas_and_continents.sort_by do |hash| 
         hash[:area].to_i
     end.reverse
+  end
+
+
+  def self.best_known_countries
+    ["Russia","Antarctica","Canada","China","United States","Brazil","Australia","India","Mexico","Italy","Japan","Egypt","France","Germany","Norway","New Zealand","United Kingdom","Ireland","Switzerland","Jamaica","Israel","Spain","Sweden"]
+  end
+
+  def self.choose_random_easy_country
+    all_names_with_areas_and_continents.map do |hash|
+        hash if best_known_countries.include?(hash[:name])
+    end.compact.sample[:name]
+  end
+
+  def self.choose_random_medium_country
+    all_names_with_areas_and_continents.map do |hash|
+        hash if hash[:area].to_i > 300000 && hash[:continent] != "Africa" && !best_known_countries.include?(hash[:name])
+    end.compact.sample[:name]
+  end
+
+  def self.choose_random_hard_country
+    all_names_with_areas_and_continents.map do |hash|
+        hash if hash[:area].to_i < 3000000 
+    end.compact.sample[:name]
+  end
+
+  def self.choose_random_really_hard_country
+    all_names_with_areas_and_continents.map do |hash|
+        hash if hash[:area].to_i < 1000 
+    end.compact.sample[:name]
   end
 
 
