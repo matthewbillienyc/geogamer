@@ -11,7 +11,7 @@
 						</div>
 						<div class="gradient-box">
 							<% if @userviewobject.game_in_progress? %>
-								<%= form_for @game, url: url_for(controller: 'games', action: 'continue'), method: 'get', html: {class: 'continue'} do |f| %>
+								<%= form_for @game, url: url_for(controller: 'locations', action: 'continue'), method: 'get', html: {class: 'continue'} do |f| %>
 									<%= f.submit "Continue last game", class: 'button' %>
 								<% end %>
 							<% else %>

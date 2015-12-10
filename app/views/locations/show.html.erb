@@ -41,6 +41,11 @@
 		</div>
 		<div class='col-xs-5'>
 			<ul class="clues top">
+				<% if @clues %>
+					<% @clues.each do |clue| %>
+						<li class='gradient-box'><%= clue.datatype.lead_in %><%= clue.data %></li>
+					<% end %>
+				<% end %>
 			</ul>
 		</div>
 	</div>

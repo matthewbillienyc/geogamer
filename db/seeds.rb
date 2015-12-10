@@ -46,25 +46,26 @@ Datatype.create(dtype: 'GDP', lead_in: 'The GDP of this country is ', difficulty
 # argentina.save
 # argentina.build_clues
 
-3.times {Fabricate(:user)}
+1.times {Fabricate(:user)}
 
 #Yes, this needs to be refactored.
 User.all.each do |user|
-  2.times do 
+  1.times do
     user_game = user.games.create
     user_game.status = "completed"
     user_game.score = rand(1..15) * 10
     user_game.save
-    2.times do
+    1.times do
       country = Country.choose_random_country
       choosen_country = user_game.locations.create(name: country)
       choosen_country.scrape_data
+      choosen_country.get_img_url
       choosen_country.save
       choosen_country.build_clues
     end
 
     user_game.locations.each do |location|
-      4.times do
+      2.times do
         if location.clues.sample
           clue = location.clues.sample
           GameClue.create({game_id: user_game.id, clue_id: clue.id})
