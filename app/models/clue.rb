@@ -43,4 +43,9 @@ class Clue < ActiveRecord::Base
     joins(:games).select("clues.id, COUNT(games) AS game_count").group(:id).order("game_count DESC").first
   end
 
+  def find_clue_datatype
+    clue = Clue.find(self.id)
+    datatype = Datatype.find(clue.datatype_id)
+    datatype.dtype
+  end
 end
