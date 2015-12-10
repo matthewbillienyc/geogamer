@@ -27,6 +27,7 @@ class LocationsController < ApplicationController
 			current_game.score += params["score"].to_i
 		end
 		current_game.save
+		redirect_to startlocation_path
 	end
 
 	def create
