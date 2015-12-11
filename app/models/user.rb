@@ -66,7 +66,10 @@ class User < ActiveRecord::Base
 
   def self.num_games_for_each_user
     all.each_with_object({}) { |user, hash| hash[user.name]= user.total_number_games }
+  end
 
+  def self.user_with_most_games
+    User.joins(:games).group(:id).order("count(*) DESC").limit(1).first
   end
 
 end

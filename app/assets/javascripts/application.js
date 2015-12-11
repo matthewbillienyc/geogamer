@@ -17,3 +17,5 @@
 //= require locations
 //= require users
 //= require admin/users
+//= require chart
+//= require bootstrap

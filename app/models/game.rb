@@ -28,11 +28,21 @@ class Game < ActiveRecord::Base
   end
 
   def pick_new_location_name
-    # find those that have not been used/chosen - and then select something random
-    name = Country.choose_random_country
+    #name = Country.choose_random_country
+    if self.locations.length <= 1
+      name = Country.choose_random_easy_country
+    elsif self.locations.length <= 2
+      name = Country.choose_random_medium_country
+    elsif self.locations.length <= 3
+      name = Country.choose_random_hard_country
+    else
+      name = Country.choose_random_really_hard_country
+    end
+
     while self.visited_location_names.include?(name)
       name = Country.choose_random_country
     end
+
     return name
   end
 
