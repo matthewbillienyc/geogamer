@@ -19,26 +19,25 @@ class CreateClue
 
   def hard_clues
     @clue = Clue.random_hard_clue(location.id)
-    @clue.status = "used"
-    @clue.save
-    current_game.clues.push(@clue)
+    set_clue_status_and_link_to_game(@clue)
     @clue
   end
 
   def medium_clues
     @clue = Clue.random_medium_clue(location.id)
-    @clue.status = "used"
-    @clue.save
-    current_game.clues.push(@clue)
+    set_clue_status_and_link_to_game(@clue)
     @clue
   end
 
   def easy_clues
     @clue = Clue.random_easy_clue(location.id)
-    @clue.status = "used"
-    @clue.save
-    current_game.clues.push(@clue)
+    set_clue_status_and_link_to_game(@clue)
     @clue
   end
 
+  def set_clue_status_and_link_to_game(clue)
+    clue.status = "used"
+    clue.save
+    current_game.clues.push(clue)
+  end
 end
