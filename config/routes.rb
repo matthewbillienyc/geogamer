@@ -19,5 +19,6 @@ Rails.application.routes.draw do
   get '/startlocation' => 'locations#create'
   get '/won' => 'games#won'
   get '/continue' => 'locations#continue'
+  get '/chart' => 'admins#chart_info'
 
 end

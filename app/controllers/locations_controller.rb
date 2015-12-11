@@ -31,18 +31,8 @@ class LocationsController < ApplicationController
 	end
 
 	def create
-		name = current_game.pick_new_location_name
-		if Location.find_by(name: name)
-			@location = Location.find_by(name: name)
-			redirect_to @location
-		else
-			@location = Location.new(name: name)
-			@location.scrape_data
-			@location.get_img_url
-			@location.save
-			@location.build_clues
-			redirect_to @location
-		end
+		@location = CreateLocation.new(current_game).call
+		redirect_to @location
 	end
 
 end
