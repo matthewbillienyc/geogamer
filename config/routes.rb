@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  mount_ember_app :frontend, to: "/"
+
   namespace :api do
     namespace :v1 do
       resources :users, :defaults => { :format => 'json' }
@@ -15,7 +17,7 @@ Rails.application.routes.draw do
     resources :users
   end
 
-  root to: "homepage#index"
+  # root to: "homepage#index"
 
   # get '/creative' => 'creatives#creative'
   get 'signup' => 'users#new'

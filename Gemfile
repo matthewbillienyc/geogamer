@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'responders', '~> 2.0'
 gem 'active_model_serializers'
-gem 'ember-cli-rails'
+gem 'ember-cli-rails', '~> 0.6.0'
 
 ruby '2.2.2'
 gem "rails-erd"

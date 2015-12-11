@@ -221,7 +221,7 @@ DEPENDENCIES
   byebug
   capybara
   coffee-rails (~> 4.1.0)
-  ember-cli-rails
+  ember-cli-rails (~> 0.6.0)
   fabrication
   faker
   figaro
