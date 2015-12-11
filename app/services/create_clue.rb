@@ -57,5 +57,5 @@ class CreateClue
     clue.save
     game.clues.push(clue)
   end
-
+  
 end
