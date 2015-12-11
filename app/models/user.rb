@@ -65,8 +65,7 @@ class User < ActiveRecord::Base
   end
 
   def self.user_with_most_games
-    user_id = joins(:games).select("users.id, COUNT(games) AS num_games").group(:id).order("num_games DESC").first
-    User.find(user_id)
+    User.joins(:games).group(:id).order("count(*) DESC").limit(1).first
   end
 
 end
