@@ -1,0 +1,1 @@
+/Users/matthewwmain/Development/FLATIRON/projects/geogamer/frontend/tmp/config_replace-output_path-GFIogTwe.tmp/app-suffix.js
