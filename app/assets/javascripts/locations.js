@@ -10,7 +10,7 @@ $(function(){
 	})
 
 	$('#make_guess').on('submit', function(e){
-		// e.preventDefault();
+
 		// e.stopPropagation();
 		var guess = $("#name").val();
 		var answer = $('.name').attr('id')
@@ -35,10 +35,12 @@ $(function(){
 				}
 			})
 		} else {
+			e.preventDefault();
 			alert('Nope! Guess again or reveal more clues!')
 			$("#location_name").val('')
 			$("#guess-div").hide();
 			$("#where-to").show();
+			debugger;
 		}
 	})
 })
