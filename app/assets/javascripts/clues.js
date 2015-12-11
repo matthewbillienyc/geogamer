@@ -11,7 +11,7 @@ $(function(){
       method: method,
       data: $form.serialize(),
       success: function(dataBack){
-        if ($("#used-up").length == 1) {
+        if ($("li").length == 6) {
           alert("No more clues, dummy!")
         } else {
         $(".clues").append(dataBack)
