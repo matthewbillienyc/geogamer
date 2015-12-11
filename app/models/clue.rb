@@ -20,24 +20,35 @@ class Clue < ActiveRecord::Base
     # self.where('location_id = ? AND status = ?', location_id, "unused")
   end
 
-
-  def self.random_easy_clue(location_id)
-  	where(location_id: location_id, status: 'unused').select do |clue|
-  		clue.datatype.difficulty == "easy"
-  	end.sample
+  def self.random_clue(difficulty, location_id)
+    where(location_id: location_id, status: 'unused').select do |clue|
+      clue.datatype.difficulty == difficulty
+    end.sample
   end
 
-  def self.random_medium_clue(location_id)
-  	where(location_id: location_id, status: 'unused').select do |clue|
-  		clue.datatype.difficulty == "medium"
-  	end.sample
+  def self.random_clue_two_difficulties(difficulty_one, difficulty_two, location_id)
+    where(location_id: location_id, status: 'unused').select do |clue|
+      clue.datatype.difficulty == difficulty_one || clue.datatype.difficulty == difficulty_two
+    end.sample
   end
 
-  def self.random_hard_clue(location_id)
-  	where(location_id: location_id, status: 'unused').select do |clue|
-  		clue.datatype.difficulty == "hard"
-  	end.sample
-  end
+  # def self.random_easy_clue(location_id)
+  # 	where(location_id: location_id, status: 'unused').select do |clue|
+  # 		clue.datatype.difficulty == "easy"
+  # 	end.sample
+  # end
+  #
+  # def self.random_medium_clue(location_id)
+  # 	where(location_id: location_id, status: 'unused').select do |clue|
+  # 		clue.datatype.difficulty == "medium"
+  # 	end.sample
+  # end
+  #
+  # def self.random_hard_clue(location_id)
+  # 	where(location_id: location_id, status: 'unused').select do |clue|
+  # 		clue.datatype.difficulty == "hard"
+  # 	end.sample
+  # end
 
   def self.most_used_clue_across_all_games
     joins(:games).select("clues.id, COUNT(games) AS game_count").group(:id).order("game_count DESC").first

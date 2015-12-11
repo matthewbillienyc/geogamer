@@ -1,44 +1,61 @@
 class CreateClue
 
-  attr_reader :location, :current_game
+  attr_reader :location, :game
 
-  def initialize(location, current_game)
+  def initialize(location, game)
     @location = location
-    @current_game = current_game
+    @game = game
   end
 
-  def run
-    if (0..1).include?(location.used_clues_count)
-      hard_clues
-    elsif (2..3).include?(location.used_clues_count)
-      medium_clues
-    elsif (4..5).include?(location.used_clues_count)
-      easy_clues
+  def call
+    case location.used_clues_count
+    when 0, 1
+       if get_clue("hard")
+         clue = get_clue("hard")
+         change_status(clue)
+         clue
+       else
+         clue = get_clue_for_other_difficulties("easy", "medium")
+         change_status(clue)
+         clue
+       end
+    when 2, 3
+      if get_clue("medium")
+        clue = get_clue("medium")
+        change_status(clue)
+        clue
+      else
+        clue = get_clue_for_other_difficulties("easy", "hard")
+        change_status(clue)
+        clue
+      end
+    when 4, 5
+      if get_clue("easy")
+        clue = get_clue("easy")
+        change_status(clue)
+        clue
+      else
+        clue = get_clue_for_other_difficulties("hard", "medium")
+        change_status(clue)
+        clue
+      end
     end
   end
 
-  def hard_clues
-    @clue = Clue.random_hard_clue(location.id)
-    @clue.status = "used"
-    @clue.save
-    current_game.clues.push(@clue)
-    @clue
+  private
+
+  def get_clue(difficulty)
+    Clue.random_clue(difficulty, location.id)
   end
 
-  def medium_clues
-    @clue = Clue.random_medium_clue(location.id)
-    @clue.status = "used"
-    @clue.save
-    current_game.clues.push(@clue)
-    @clue
+  def get_clue_for_other_difficulties(difficulty_one, difficulty_two)
+    Clue.random_clue_two_difficulties(difficulty_one, difficulty_two, location.id)
   end
 
-  def easy_clues
-    @clue = Clue.random_easy_clue(location.id)
-    @clue.status = "used"
-    @clue.save
-    current_game.clues.push(@clue)
-    @clue
+  def change_status(clue)
+    clue.status = "used"
+    clue.save
+    game.clues.push(clue)
   end
 
 end
