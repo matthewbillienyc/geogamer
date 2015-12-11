@@ -539,7 +539,6 @@ body {
 }
 
 .user_show {
-    background-color: #000099;
     height: 100%;
     margin: 0;
     // background-repeat: repeat;
@@ -555,25 +554,25 @@ body {
   margin-top: 10%;
 }
 
-.slide-left {
-    position: absolute;
-    left: -500px;
-    width: 300px;
-    -webkit-animation: slide 0.5s forwards;
-    -webkit-animation-delay: 2s;
-    animation: slide 1s forwards;
-    animation-delay: 1.5s;
-}
-
-.slide-left-slow {
-    position: absolute;
-    left: -500px;
-    width: 300px;
-    -webkit-animation: slide 1s forwards;
-    -webkit-animation-delay: 2.5s;
-    animation: slide 1.5s forwards;
-    animation-delay: 2s;
-}
+// .slide-left {
+//     position: absolute;
+//     left: -500px;
+//     width: 300px;
+//     -webkit-animation: slide 0.5s forwards;
+//     -webkit-animation-delay: 2s;
+//     animation: slide 1s forwards;
+//     animation-delay: 1.5s;
+// }
+//
+// .slide-left-slow {
+//     position: absolute;
+//     left: -500px;
+//     width: 300px;
+//     -webkit-animation: slide 1s forwards;
+//     -webkit-animation-delay: 2.5s;
+//     animation: slide 1.5s forwards;
+//     animation-delay: 2s;
+// }
 
 @-webkit-keyframes slide {
     100% { left: 0; }
