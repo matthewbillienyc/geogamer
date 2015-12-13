@@ -1,4 +1,44 @@
-<div class="location_show" style="background-image:url('<%= @location.img_url %>')">
+
+<body style="background:lightblue">
+
+<img src="<%= @location.img_url %>" style="height:150px; margin-top:100px"/>
+
+<p style="margin-top:30px">Where are you headed?<p>
+
+<div id ='guess-div'>
+	<%= form_tag url_for(action: 'score'), method: 'post', id: 'make_guess' do %>
+		<%= text_field_tag :name %>
+		<%= hidden_field_tag :score, 60 %>
+		<%= submit_tag "guess" %>
+	<% end %>
+</div>
+
+<div>
+	<%= form_for @clue, html: {id: 'reveal-clue'}, method: 'post' do |f| %>
+		<%= f.hidden_field :location_id, :value => @location.id %>
+		<%= f.submit "Reveal Clue" %>
+	<% end %>
+</div>
+
+<p>Game score: <%= current_game.score %></p>
+							
+<p class="name" id="<%=@location.name%>"> <%=@location.name%> </p>
+
+<ul class="clues">
+	<% if @clues %>
+		<% @clues.each do |clue| %>
+			<li><%= clue.datatype.lead_in %><%= clue.data %>TEST</li>
+		<% end %>
+	<% end %>
+</ul>
+
+</body>
+
+
+
+
+<!--ORIGINAL-->
+<!-- <div class="location_show" style="background-image:url('<%= @location.img_url %>')">
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-4">
@@ -43,4 +83,4 @@
 			</ul>
 		</div>
 	</div>
-</div>
+</div> -->

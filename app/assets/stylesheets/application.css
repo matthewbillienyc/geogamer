@@ -14,3 +14,9 @@
  *= require_self
  *= require bootstrap
  */
+
+ .test_with_green_background {
+ 	background: green;
+ }
+
+
