@@ -1,9 +1,6 @@
 
 <body>
 
-<!-- NEW LAYOUT... -->
-
-<!-- <div id="cstm-body"> -->
 <link href='https://fonts.googleapis.com/css?family=Meddon|IM+Fell+English' rel='stylesheet' type='text/css'>
 
 <script>
@@ -45,25 +42,6 @@
 			</div>
 				<% end %>
 
-<!-- 			<div class="cstmCluesDiv">
-				<p>CLUE #1</p>
-			</div>
-			<div class="cstmCluesDiv">
-				<p>CLUE #2</p>
-			</div>
-			<div class="cstmCluesDiv">
-				<p>CLUE #3</p>
-			</div>
-			<div class="cstmCluesDiv">
-				<p>CLUE #4</p>
-			</div>
-			<div class="cstmCluesDiv">
-				<p>CLUE #5</p>
-			</div>
-			<div class="cstmCluesDiv">
-				<p>CLUE #6</p>
-			</div> -->
-
 			<div class="clues">
 				<% if @clues %>
 					<% @clues.each do |clue| %>
@@ -78,8 +56,6 @@
 
 	</div>
 
-<!-- </div> -->
-<!-- ...NEW LAYOUT END-->
 
 
 
@@ -92,58 +68,3 @@
 
 
 </body>
-
-
-
-
-
-
-
-
-<!--ORIGINAL-->
-<!-- <div class="location_show" style="background-image:url('<%= @location.img_url %>')">
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-4">
-				<div class='slide-left'>
-					<div class="gradient-box top button-div" style="width:300px;height:150px;">
-						<div style='opacity:1.0;'>
-							<div id='where-to'>Where are you headed?
-								<p class='tinier-text'>(doubleclick)</p>
-							</div>
-
-							<div id ='guess-div'>
-								<%= form_tag url_for(action: 'score'), method: 'post', id: 'make_guess' do %>
-									<%= text_field_tag :name %>
-									<%= hidden_field_tag :score, 60 %>
-									<%= submit_tag "guess" %>
-								<% end %>
-							</div>
-							<p class='top-bar'>
-								<%= form_for @clue, html: {id: 'reveal-clue'},method: 'post' do |f| %>
-									<%= f.hidden_field :location_id, :value => @location.id %>
-									<%= f.submit "Reveal Clue" %>
-								<% end %>
-							<p>
-								<span class='game-score tiny-text'>Game score: <%= current_game.score %></span>
-							</p>
-							</p>
-						</div>
-					</div>
-				</div>
-		</div>
-		<div class="col-xs-3">
-			<div class="name middle" id="<%=@location.name%>">
-			</div>
-		</div>
-		<div class='col-xs-5'>
-			<ul class="clues top">
-				<% if @clues %>
-					<% @clues.each do |clue| %>
-						<li class='gradient-box'><%= clue.datatype.lead_in %><%= clue.data %></li>
-					<% end %>
-				<% end %>
-			</ul>
-		</div>
-	</div>
-</div> -->
