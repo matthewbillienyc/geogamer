@@ -1,1 +1,0 @@
-/Users/matthewwmain/Development/FLATIRON/projects/geogamer/frontend/tmp/broccoli_merge_trees-input_base_path-RcODPOZg.tmp/2/initializers/modals-container.js
