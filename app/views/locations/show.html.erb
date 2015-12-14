@@ -35,12 +35,12 @@
 		</div>
 
 		<div id="cstm-column-right">
-					<%= form_for @clue, html: {id: 'reveal-clue'}, method: 'post' do |f| %>
-						<%= f.hidden_field :location_id, :value => @location.id %>
+			<%= form_for @clue, html: {id: 'reveal-clue'}, method: 'post' do |f| %>
+				<%= f.hidden_field :location_id, :value => @location.id %>
 			<div class="cstmRevealClueButtonDiv">
-						<%= f.submit "Reveal a Clue" %>
+				<%= f.submit "Reveal a Clue" %>
 			</div>
-					<% end %>
+				<% end %>
 			<div class="cstmCluesDiv">
 				<p>CLUE #1</p>
 			</div>
@@ -59,6 +59,17 @@
 			<div class="cstmCluesDiv">
 				<p>CLUE #6</p>
 			</div>
+
+			<ul class="clues">
+				<% if @clues %>
+					<% @clues.each do |clue| %>
+						<div class="cstmCluesDiv">
+							<p><%= clue.datatype.lead_in %><%= clue.data %></p>
+						</div>
+					<% end %>
+				<% end %>
+			</ul>
+
 		</div>
 
 	</div>
@@ -69,24 +80,12 @@
 
 
 
-
-
-
-
 <div style="height:150px"></div>
 
-
-<p>Game score: <%= current_game.score %></p>
-							
+<p>Game score: <%= current_game.score %></p>			
 <p class="name" id="<%=@location.name%>"> <%=@location.name%> </p>
 
-<ul class="clues">
-	<% if @clues %>
-		<% @clues.each do |clue| %>
-			<li><%= clue.datatype.lead_in %><%= clue.data %>TEST</li>
-		<% end %>
-	<% end %>
-</ul>
+
 
 </body>
 

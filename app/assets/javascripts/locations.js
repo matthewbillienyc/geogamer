@@ -39,7 +39,6 @@ $(function(){
 			$("#location_name").val('')
 			// $("#guess-div").hide();
 			// $("#where-to").show();
-			debugger;
 		}
 	})
 })

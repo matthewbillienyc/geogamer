@@ -20,7 +20,7 @@ Datatype.create(dtype: 'language', lead_in: "The main language of this country i
 Datatype.create(dtype: 'currency', lead_in: "This country's currency is ", difficulty: "easy")
 Datatype.create(dtype: 'population', lead_in: "This country has a population of ", difficulty: "medium")
 Datatype.create(dtype: 'continent', lead_in: "This country is in ", difficulty: "hard")
-Datatype.create(dtype: 'land area', lead_in: 'This country hacs a land area of ', difficulty: "hard")
+Datatype.create(dtype: 'land area', lead_in: 'This country has a land area of ', difficulty: "hard")
 Datatype.create(dtype: 'terrain', lead_in: "This country's terrain is: ", difficulty: "hard")
 Datatype.create(dtype: 'climate', lead_in: "This country's climate is: ", difficulty: "hard")
 Datatype.create(dtype: 'natural hazards', lead_in: "This country's natural hazards are ", difficulty: "hard")

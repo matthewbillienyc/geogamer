@@ -12,7 +12,10 @@ $(function(){
         method: method,
         data: $form.serialize(),
         success: function(dataBack){
-          $(".clues").append(dataBack)
+
+          // $(".clues").append(dataBack)
+          $(".cstmCluesDiv").text(dataBack) 
+           
         }
       })
     } else {

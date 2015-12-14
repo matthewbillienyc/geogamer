@@ -15,12 +15,13 @@
  *= require bootstrap
  */
 
-* {
+
+
+/** {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-}
-
+}*/
 
 #cstm-nav-bar {
 	height: 4.5em;
@@ -49,11 +50,12 @@
 
 			#cstm-image {
 				max-width: 90%;
-				max-height: 27.5em;
+				max-height: 27em;
 				display: block;   
 		  	border-style: solid;
 		  	border-width: 1em;
 		  	border-color: #f6f4e6;
+		  	margin-top: .8em;
 				margin-left: auto;
 		  	margin-right: auto;
 		  	box-shadow: 0px 0px 20px #000000;
@@ -116,6 +118,8 @@
 				}
 					#cstm-guess-button input:hover {
 						color: darkgreen;
+						background: white;
+						opacity: 1;
 						opacity: .8;
 					}
 					#cstm-guess-button input:focus {
@@ -126,7 +130,7 @@
 		float: left;
 		width: 33%;
 		height: 42em;
-		margin: 1em 6% 1em 1%;
+		margin: 1.5em 6% 1em 1%;
 		font-family: 'IM Fell English', serif;
 		color: darkgray;
 	}
@@ -165,7 +169,7 @@
 			float: left;
 			width: 100%;
 			height: 4.5em;
-			margin-top: 1.25em;
+			margin-top: 1.33em;
 			background: lightgray;
 			text-align: center;
 			letter-spacing: .3em;
