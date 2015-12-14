@@ -189,3 +189,70 @@
 			transform: translateY(-50%);
 }
 */
+.cstm-font {
+		font-family: 'IM Fell English', serif;
+		font-size: 1.5em; }
+
+.cstm-usershow-button input{
+			width: 100%;
+			height: 2.5em;
+			border-style: none;
+			background-color: lightgrey;
+			color: black;
+			opacity: .5;
+			font-family: 'IM Fell English', serif;
+			font-size: 1em;
+			/*line-height: 2em;*/
+			border-radius: .3em;
+		}
+			.cstm-usershow-button input:hover {
+				color: white;
+				background: darkgray;
+				opacity: 1;
+				opacity: .8;
+			}
+			.cstm-usershow-button input:focus {
+				outline: none;
+			}
+
+.cstm-gameslist-button{
+			height: 2.5em;
+			border-style: none;
+			background-color: lightgrey;
+			color: black;
+			opacity: .5;
+			font-family: 'IM Fell English', serif;
+			font-size: 0.8em;
+			/*line-height: 2em;*/
+			border-radius: .3em;
+		}
+			.cstm-gameslist-button:hover {
+				color: white;
+				background: darkgray;
+				opacity: 1;
+				opacity: .8;
+			}
+			.cstm-gameslist-button:focus {
+				outline: none;
+			}
+
+.cstm-admin-button{
+			height: 2.5em;
+			border-style: none;
+			background-color: lightblue;
+			color: black;
+			opacity: .5;
+			font-family: 'IM Fell English', serif;
+			font-size: 0.8em;
+			/*line-height: 2em;*/
+			border-radius: .3em;
+		}
+			.cstm-admin-button:hover {
+				color: white;
+				background: darkblue;
+				opacity: 1;
+				opacity: .8;
+			}
+			.cstm-admin-button:focus {
+				outline: none;
+			}

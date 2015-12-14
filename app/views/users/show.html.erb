@@ -1,82 +1,86 @@
-<body class="user_show" style="background-image:url('http://data.hdwallpapers.im/outer_space_stars_earth_high_resolution_images.jpg')">
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-4">
-				<div class='top'>
-					<div class='slide-left'>
-						<div class="gradient-box user_name">
-							<h2><%=@user.name%></h2>
-							<p><%=@user.email%></p>
-						</div>
-						<div class="gradient-box">
-							<% if @userviewobject.game_in_progress? %>
-								<%= form_for @game, url: url_for(controller: 'locations', action: 'continue'), method: 'get', html: {class: 'continue'} do |f| %>
-									<%= f.submit "Continue last game", class: 'button' %>
-								<% end %>
-							<% else %>
-								<%=form_for @game do |f| %>
-									<%f.submit "Start a new game", class: 'button' %>
-								<% end %>
-							<% end %>
-						</div>
-					</div>
-				</div>
-			</div>
+<body>
 
-			<div id='gamesList' class="col-sm-3 center-block">
-				<div class="gradient-box top-list	center-block">
-					<ul class='left-block'>
-					<% @user.games.each_with_index do |game| %>
-							<li>
-								<!-- Button trigger modal -->
-								<button type="button" class="btn btn-primary left-block" data-toggle="modal" data-target="#myModal<%= game.id%>">
-								  Date: <%= game.truncated_date %>
-								</button>
+	<link href='https://fonts.googleapis.com/css?family=Meddon|IM+Fell+English' rel='stylesheet' type='text/css'>
+	
+	<div class="container cstm-font">
 
-								<!-- Modal -->
-								<div class="modal fade" id='myModal<%= game.id%>' tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-								  <div class="modal-dialog" role="document">
-								    <div class="modal-content">
-								      <div class="modal-header">
-								        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-								        <h4 class="modal-title" id="myModalLabel">Game date: <%= game.truncated_date %></h4>
-								      </div>
-								      <div class="modal-body">
-								        <strong>Score:</strong> <%= game.score %><br><br>
-								        <ul>
-								        <% game.locations.each do |location| %>
-								          <li class='tiny-text'>
-								            <span><strong><%= location.name %></strong><span><br><span class='center-info'><img height="100" width="175" src="<%= location.img_url %>"></span><br><br>
-								          </li>
-								        <% end %>
-								        </ul>
-								      </div>
-								      <div class="modal-footer">
-								        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-								      </div>
-								    </div>
-								  </div>
-								</div>
-							</li><br><br>
+	<div class='row'>
+
+		<div class="col-md-3 gradient-box">
+			<h2><%=@user.name%></h2>
+			<p><%=@user.email%></p><br>
+			<div class='cstm-usershow-button'>
+				<% if @userviewobject.game_in_progress? %>
+					<%= form_for @game, url: url_for(controller: 'locations', action: 'continue'), method: 'get', html: {class: 'continue '} do |f| %>
+						<%= f.submit "Continue last game"%>
 					<% end %>
-				</div>
-			</div>
-			<div class='col-xs-5'>
-				<div class="gradient-box game-show top">
-					<div class='user-stats'>
-						<p>
-							Total games played: <%= @userviewobject.total_games_response %>
-						</p>
-						<p>
-							Total locations visited: <%= @userviewobject.total_locations_response %>
-						</p>
-						<p>
-							Total clues used: <%= @userviewobject.total_clues_response %>
-						</p>
-					</div>
-				</div>
-			</div>
-
+				<% else %>
+					<%=form_for @game do |f| %>
+						<%f.submit "Start a new game"%>
+					<% end %>
+				<% end %>
+			</div><br>
+			<% if @user.admin %>
+				<%= button_to "Admin panel", "/admin/users", :method => "get", class: 'cstm-admin-button' %>
+			<% end %>
 		</div>
-	</div>
-</body
+
+		<div class="col-md-3 gradient-box col-md-offset-1">
+			<h2>Past games
+			</h2>
+				<ul class='center-block'>
+				<% @user.games.each_with_index do |game| %>
+						<li class='center-block'>
+							<!-- Button trigger modal -->
+							<!-- <div class='cstm-guess-button'> -->
+							<button type="button" class='cstm-gameslist-button' data-toggle="modal" data-target="#myModal<%= game.id%>">
+							  Game date: <%= game.truncated_date %>
+							</button>
+							<!-- </div> -->
+
+							<!-- Modal -->
+							<div class="modal fade" id='myModal<%= game.id%>' tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+							  <div class="modal-dialog" role="document">
+							    <div class="modal-content">
+							      <div class="modal-header">
+							        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							        <h4 class="modal-title" id="myModalLabel">Game date: <%= game.truncated_date %></h4>
+							      </div>
+							      <div class="modal-body">
+							        <strong>Score:</strong> <%= game.score %><br><br>
+							        <ul>
+							        <% game.locations.each do |location| %>
+							          <li class='tiny-text'>
+							            <span><strong><%= location.name %></strong><span><br><span class='center-info'><img height="100" width="175" src="<%= location.img_url %>"></span><br><br>
+							          </li>
+							        <% end %>
+							        </ul>
+							      </div>
+							      <div class="modal-footer">
+							        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							      </div>
+							    </div>
+							  </div>
+							</div>
+						</li><br><br>
+				<% end %>
+				</ul>
+		</div>
+
+		<div class='col-md-4 col-md-offset-1 gradient-box'>
+				<div class='user-stats'>
+					<h2>Stats</h2>
+					<p>
+						<strong>Total games played:</strong><br> <%= @userviewobject.total_games_response %>
+					</p>
+					<p>
+						<strong>Total locations visited:</strong><br> <%= @userviewobject.total_locations_response %>
+					</p>
+					<p>
+						<strong>Total clues used:</strong><br> <%= @userviewobject.total_clues_response %>
+					</p>
+				</div>
+			</div>
+		</div>
+</div>
+</body>
