@@ -14,3 +14,179 @@
  *= require_self
  *= require bootstrap
  */
+
+
+
+/** {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}*/
+
+#cstm-nav-bar {
+	height: 4.5em;
+	background-color: midnightblue;
+}
+
+
+#cstm-display {
+	height: 44em;
+	background-color: midnightblue;
+	margin: 0;
+}
+
+	#cstm-column-left {
+		float: left;
+		width: 57%;
+		height: 42em;
+		margin: 1em 1% 1em 2%;
+	}
+
+		#cstm-image-div {
+			float: left;
+			width: 100%;
+			height: 28em;
+		}
+
+			#cstm-image {
+
+				/*position: absolute;*/
+
+				max-width: 90%;
+				max-height: 27em;
+				display: block;   
+		  	border-style: solid;
+		  	border-width: 1em;
+		  	border-color: #f6f4e6;
+		  	margin-top: .8em;
+				margin-left: auto;
+		  	margin-right: auto;
+		  	box-shadow: 0px 0px 20px #000000;
+		  	transform: rotate(-1deg);
+			}
+
+		#cstm-guess-div {
+			float: left;
+			width: 100%;
+			height: 14em;	
+		}
+
+			#cstm-guess-div h3 {
+				font-family: "Meddon", cursive;	
+				font-size: 1.5em;
+				color: lightgray;	
+				text-shadow: 0px 0px 10px #000000;
+			}
+
+			#cstm-guess-inputs {
+				width: 66%;
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+				#cstm-guess-field input {
+					float: left;
+					width: 60%;
+					max-height: 2.5em;
+					margin: .8em 5% 0 0;
+					border-style: none;
+					border-radius: 1px;
+					padding: 0 3%;
+					background: lightgrey;
+					font-family: 'IM Fell English', serif;
+					font-size: 2em;
+					line-height: 2em;
+					box-shadow: 0px 0px 4px lightgray;
+				}
+					#cstm-guess-field input:focus { 
+    			border-style: none;
+    			outline: none;
+				}
+
+				#cstm-guess-button input {
+					float: right;
+					width: 30%;
+					height: 2.5em;
+					margin: 1.1em 0 0 5%;
+					border-style: none;
+					padding: .2em 2.5% 0;
+					background-color: lightgrey;
+					color: black;
+					opacity: .5;
+					font-family: 'IM Fell English', serif;
+					font-size: 1.5em;
+					line-height: 2em;
+					border-radius: .3em;
+				}
+					#cstm-guess-button input:hover {
+						color: darkgreen;
+						background: white;
+						opacity: 1;
+						opacity: .8;
+					}
+					#cstm-guess-button input:focus {
+						outline: none;
+					}
+
+	#cstm-column-right {
+		float: left;
+		width: 33%;
+		height: 42em;
+		margin: 1.5em 6% 1em 1%;
+		font-family: 'IM Fell English', serif;
+		color: darkgray;
+	}
+
+		.cstmRevealClueButtonDiv {
+			float: left;
+			width: 100%;
+			height: 4.5em;
+			color: black;
+			text-align: center;
+		}
+		.cstmRevealClueButtonDiv input {
+			position: relative;
+			top: 50%;
+			transform: translateY(-50%);
+			border-style: none;
+			background: darkgray;
+			width: 66%;
+			height: 2em;
+			font-size: 1.3em;
+			padding-top: .2em;
+			border-radius: 2px;
+			border-style: solid;
+			border-width: 1px;
+			border-color: black;
+			letter-spacing: .1em;
+		}
+			.cstmRevealClueButtonDiv input:hover {
+				background-color: white;
+			}
+			.cstmRevealClueButtonDiv input:focus {
+				outline: none;
+			}
+
+		.cstmCluesDiv {
+			float: left;
+			width: 100%;
+			height: 4.5em;
+			margin-top: 1.33em;
+			background: lightgray;
+			text-align: center;
+			letter-spacing: .3em;
+			border-style: solid;
+			border-color: darkgray;
+			border-width: .33em;
+			text-align: center;
+			box-shadow: 0px 0px 5px #000000;
+		}
+		.cstmCluesDiv p {
+			position: relative;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+
+

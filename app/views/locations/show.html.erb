@@ -1,4 +1,106 @@
-<div class="location_show" style="background-image:url('<%= @location.img_url %>')">
+
+<body>
+
+<!-- NEW LAYOUT... -->
+
+<!-- <div id="cstm-body"> -->
+<link href='https://fonts.googleapis.com/css?family=Meddon|IM+Fell+English' rel='stylesheet' type='text/css'>
+
+<script>
+</script>
+
+
+	<div id="cstm-nav-bar">
+	</div>
+
+	<div id="cstm-display">
+
+		<div id="cstm-column-left">
+
+			<div id="cstm-image-div">
+				<img id="cstm-image" src="<%= @location.img_url %>"/>
+			</div>
+			<div id="cstm-guess-div">
+				<h3 style="padding-left:25%">What country is this?</h3>
+				<h3 style="text-align:right; padding-right:30%">Take a guess...</h3>
+				<div id="cstm-guess-inputs">
+					<div id="cstm-guess-field">
+						<%= form_tag url_for(action: 'score'), method: 'post', id: 'make_guess' do %>
+							<%= text_field_tag :name %>
+							<%= hidden_field_tag :score, 60 %>
+					</div>
+					<div id="cstm-guess-button">
+							<%= submit_tag "GUESS" %>
+						<% end %>
+					</div>
+				</div>	
+				</div>
+		</div>
+
+		<div id="cstm-column-right">
+			<%= form_for @clue, html: {id: 'reveal-clue'}, method: 'post' do |f| %>
+				<%= f.hidden_field :location_id, :value => @location.id %>
+			<div class="cstmRevealClueButtonDiv">
+				<%= f.submit "Click to Reveal a Clue" %>
+			</div>
+				<% end %>
+			<div class="cstmCluesDiv">
+				<p>CLUE #1</p>
+			</div>
+			<div class="cstmCluesDiv">
+				<p>CLUE #2</p>
+			</div>
+			<div class="cstmCluesDiv">
+				<p>CLUE #3</p>
+			</div>
+			<div class="cstmCluesDiv">
+				<p>CLUE #4</p>
+			</div>
+			<div class="cstmCluesDiv">
+				<p>CLUE #5</p>
+			</div>
+			<div class="cstmCluesDiv">
+				<p>CLUE #6</p>
+			</div>
+
+			<ul class="clues">
+				<% if @clues %>
+					<% @clues.each do |clue| %>
+						<div class="cstmCluesDiv">
+							<p><%= clue.datatype.lead_in %><%= clue.data %></p>
+						</div>
+					<% end %>
+				<% end %>
+			</ul>
+
+		</div>
+
+	</div>
+
+<!-- </div> -->
+<!-- ...NEW LAYOUT END-->
+
+
+
+
+<div style="height:150px"></div>
+
+<p>Game score: <%= current_game.score %></p>			
+<p class="name" id="<%=@location.name%>"> <%=@location.name%> </p>
+
+
+
+</body>
+
+
+
+
+
+
+
+
+<!--ORIGINAL-->
+<!-- <div class="location_show" style="background-image:url('<%= @location.img_url %>')">
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-4">
@@ -43,4 +145,4 @@
 			</ul>
 		</div>
 	</div>
-</div>
+</div> -->

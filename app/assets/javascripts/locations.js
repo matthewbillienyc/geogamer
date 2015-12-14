@@ -1,16 +1,21 @@
 
 $(function(){
 
-	$("#guess-div").hide();
+	// $("#guess-div").hide();
 	$(".next-loc-div").hide();
 
-	$('#where-to').on('dblclick',function(e){
-		$(this).hide();
-		$("#guess-div").show();
-	})
+	// $('#where-to').on('click',function(e){
+	// 	$(this).hide();
+	// 	$("#guess-div").show();
+	// })
+
+
+	// $(document).ready(function(){
+ //    $("#cstm-image").animate({left: '250px'});
+	// });
+
 
 	$('#make_guess').on('submit', function(e){
-
 		// e.stopPropagation();
 		var guess = $("#name").val();
 		var answer = $('.name').attr('id')
@@ -38,9 +43,13 @@ $(function(){
 			e.preventDefault();
 			alert('Nope! Guess again or reveal more clues!')
 			$("#location_name").val('')
-			$("#guess-div").hide();
-			$("#where-to").show();
-			debugger;
+			// $("#guess-div").hide();
+			// $("#where-to").show();
 		}
 	})
 })
+
+
+
+
+
