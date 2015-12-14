@@ -25,13 +25,13 @@
 
 #cstm-nav-bar {
 	height: 4.5em;
-	background-color: white;
+	/*background-color: white;*/
 }
 
 
 #cstm-display {
 	height: 44em;
-	background-color: white;
+	/*background-color: white;*/
 	margin: 0;
 }
 
@@ -166,7 +166,7 @@
 				background: darkgray;
 				opacity: 1;
 				opacity: .8;
-				text-shadow:  0px 0px 3px white;
+				/*text-shadow:  0px 0px 1px white;*/
 			}
 			.cstmRevealClueButtonDiv input:focus {
 				outline: none;
@@ -176,16 +176,21 @@
 			float: left;
 			width: 100%;
 			margin-top: 1.33em;
-			background: lightgray;
+			background-color: rgba(255,255,255,0.9);
+			border: solid 1px black;
 			text-align: center;
-			border-style: solid;
-			border-color: black;
-			border-width: 2px;
 			text-align: center;
-			box-shadow: 0px 0px 2px #000000;
+
 			color: black;
 			padding: 1.5em 1em 1em 1em;
-			border-radius: .3em;
+			/* outer shadows  (note the rgba is red, green, blue, alpha) */
+			-webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4);
+			-moz-box-shadow: 0px 1px 6px rgba(23, 69, 88, .5);
+
+			/* rounded corners */
+			-webkit-border-radius: 12px;
+			-moz-border-radius: 7px;
+			border-radius: 7px;
 		}
 /*		.cstmCluesDiv p {
 			position: relative;
