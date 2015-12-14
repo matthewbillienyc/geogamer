@@ -1,9 +1,11 @@
 
 <body>
 
-
 <!-- NEW LAYOUT... -->
+
 <!-- <div id="cstm-body"> -->
+<link href='https://fonts.googleapis.com/css?family=Meddon|IM+Fell+English' rel='stylesheet' type='text/css'>
+
 
 	<div id="cstm-nav-bar">
 	</div>
@@ -11,64 +13,68 @@
 	<div id="cstm-display">
 
 		<div id="cstm-column-left">
+
 			<div id="cstm-image-div">
-				<p>IMAGE</p>
+				<img id="cstm-image" src="<%= @location.img_url %>"/>
 			</div>
 			<div id="cstm-guess-div">
-				<p>GUESS</p>
-			</div>
+				<h3 style="padding-left:25%">What country is this?</h3>
+				<h3 style="text-align:right; padding-right:30%">Take a guess...</h3>
+				<div id="cstm-guess-inputs">
+					<div id="cstm-guess-field">
+						<%= form_tag url_for(action: 'score'), method: 'post', id: 'make_guess' do %>
+							<%= text_field_tag :name %>
+							<%= hidden_field_tag :score, 60 %>
+					</div>
+					<div id="cstm-guess-button">
+							<%= submit_tag "GUESS" %>
+						<% end %>
+					</div>
+				</div>	
+				</div>
 		</div>
 
 		<div id="cstm-column-right">
+					<%= form_for @clue, html: {id: 'reveal-clue'}, method: 'post' do |f| %>
+						<%= f.hidden_field :location_id, :value => @location.id %>
+			<div class="cstmRevealClueButtonDiv">
+						<%= f.submit "Reveal a Clue" %>
+			</div>
+					<% end %>
 			<div class="cstmCluesDiv">
-				<p>REVEAL CLUE BUTTON</p>
+				<p>CLUE #1</p>
 			</div>
 			<div class="cstmCluesDiv">
-				<p>CLUE 1</p>
+				<p>CLUE #2</p>
 			</div>
 			<div class="cstmCluesDiv">
-				<p>CLUE 2</p>
+				<p>CLUE #3</p>
 			</div>
 			<div class="cstmCluesDiv">
-				<p>CLUE 3</p>
+				<p>CLUE #4</p>
 			</div>
 			<div class="cstmCluesDiv">
-				<p>CLUE 4</p>
+				<p>CLUE #5</p>
 			</div>
 			<div class="cstmCluesDiv">
-				<p>CLUE 5</p>
-			</div>
-			<div class="cstmCluesDivLast">
-				<p>CLUE 6</p>
+				<p>CLUE #6</p>
 			</div>
 		</div>
 
 	</div>
 
 <!-- </div> -->
-<!-- ...NEW LAYOUT -->
+<!-- ...NEW LAYOUT END-->
 
 
 
 
-<img src="<%= @location.img_url %>" style="height:150px; margin-top:100px"/>
 
-<p style="margin-top:30px">Where are you headed?<p>
 
-<div id ='guess-div'>
-	<%= form_tag url_for(action: 'score'), method: 'post', id: 'make_guess' do %>
-		<%= text_field_tag :name %>
-		<%= hidden_field_tag :score, 60 %>
-		<%= submit_tag "guess" %>
-	<% end %>
-</div>
 
-<div>
-	<%= form_for @clue, html: {id: 'reveal-clue'}, method: 'post' do |f| %>
-		<%= f.hidden_field :location_id, :value => @location.id %>
-		<%= f.submit "Reveal Clue" %>
-	<% end %>
-</div>
+
+<div style="height:150px"></div>
+
 
 <p>Game score: <%= current_game.score %></p>
 							
