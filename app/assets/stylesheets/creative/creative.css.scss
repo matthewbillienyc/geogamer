@@ -137,9 +137,9 @@ aside {
     border-radius: 7px;
 
     /* gradients */
-    background: -webkit-gradient(linear, left top, left bottom,
-    color-stop(0%, white), color-stop(15%, white), color-stop(100%, #D7E9F5 ));
-    background: -moz-linear-gradient(top, white 0%, white 55%, #D5E4F3  130%);
+    // background: -webkit-gradient(linear, left top, left bottom,
+    // color-stop(0%, white), color-stop(15%, white), color-stop(100%, #D7E9F5 ));
+    // background: -moz-linear-gradient(top, white 0%, white 55%, #D5E4F3  130%);
 }
 
 .navbar-default .navbar-header .navbar-brand {
@@ -706,4 +706,8 @@ border:1px solid #a8c2c3; -webkit-border-radius: 3px; -moz-border-radius: 3px;bo
 
 .bold {
   font-weight: bolder;
+}
+
+#logo-text {
+  color: black;
 }
