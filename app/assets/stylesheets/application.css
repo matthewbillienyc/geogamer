@@ -17,72 +17,63 @@
 
 
 
-/** {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}*/
-
 #cstm-nav-bar {
 	height: 4.5em;
-	background-color: white;
 }
 
 
 #cstm-display {
 	height: 44em;
-	background-color: white;
 	margin: 0;
+	font-weight: 900;
+	background-color: rgba(246,244,230,.75);
 }
 
-	#cstm-column-left {
-		float: left;
-		width: 57%;
-		height: 42em;
-		margin: 1em 1% 1em 2%;
-	}
+#cstm-column-left {
+	float: left;
+	width: 57%;
+	height: 42em;
+	margin: 1em 1% 1em 2%;
+}
 
-		#cstm-image-div {
-			float: left;
-			width: 100%;
-			height: 28em;
-		}
+#cstm-image-div {
+	float: left;
+	width: 100%;
+	height: 28em;
+}
 
-			#cstm-image {
+#cstm-image {
+	max-width: 90%;
+	max-height: 27em;
+	display: block;
+	border-style: solid;
+	border-width: 1em;
+	border-color: #f6f4e6;
+	margin-top: .8em;
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 0px 0px 20px #000000;
+	transform: rotate(-1deg);
+}
 
-				/*position: absolute;*/
-
-				max-width: 90%;
-				max-height: 27em;
-				display: block;   
-		  	border-style: solid;
-		  	border-width: 1em;
-		  	border-color: #f6f4e6;
-		  	margin-top: .8em;
-				margin-left: auto;
-		  	margin-right: auto;
-		  	box-shadow: 0px 0px 20px #000000;
-		  	transform: rotate(-1deg);
-			}
-
-		#cstm-guess-div {
-			float: left;
-			width: 100%;
-			height: 14em;	
-		}
+#cstm-guess-div {
+	float: left;
+	width: 100%;
+	height: 14em;
+}
 
 			#cstm-guess-div h3 {
-				font-family: "Meddon", cursive;	
+				font-family: "Meddon", cursive;
 				font-size: 1.5em;
-				color: black;	
+				color: black;
 			}
 
-			#cstm-guess-inputs {
-				width: 66%;
-				display: block;
-				margin-left: auto;
-				margin-right: auto;
-			}
+#cstm-guess-inputs {
+	width: 66%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
 
 				#cstm-guess-field input {
 					float: left;
@@ -101,7 +92,7 @@
 					box-shadow: 0px 0px 4px lightgray;
 					border-radius: .3em;
 				}
-					#cstm-guess-field input:focus { 
+					#cstm-guess-field input:focus {
     			border-style: none;
     			outline: none;
 				}
@@ -119,13 +110,14 @@
 					font-size: 1.5em;
 					line-height: 2em;
 					border-radius: .3em;
+					box-shadow: 0px 0px 5px gray inset;
 				}
 					#cstm-guess-button input:hover {
 						color: white;
 						background: darkgray;
 						opacity: 1;
 						opacity: .8;
-						text-shadow:  0px 0px 3px white;
+						text-shadow:  0px 0px 1px white;
 					}
 					#cstm-guess-button input:focus {
 						outline: none;
@@ -160,13 +152,13 @@
 			border-radius: 5px;
 			letter-spacing: .1em;
 			color: black;
+			box-shadow: 0px 0px 5px gray inset;
 		}
 			.cstmRevealClueButtonDiv input:hover {
 				color: white;
 				background: darkgray;
-				opacity: 1;
 				opacity: .8;
-				text-shadow:  0px 0px 3px white;
+				text-shadow:  0px 0px 1px white;
 			}
 			.cstmRevealClueButtonDiv input:focus {
 				outline: none;
@@ -176,22 +168,24 @@
 			float: left;
 			width: 100%;
 			margin-top: 1.33em;
-			background: lightgray;
+			background-color: rgba(255,255,255,0.9);
+			border: solid 1px black;
 			text-align: center;
-			border-style: solid;
-			border-color: black;
-			border-width: 2px;
 			text-align: center;
-			box-shadow: 0px 0px 2px #000000;
+
 			color: black;
 			padding: 1.5em 1em 1em 1em;
-			border-radius: .3em;
+			/* outer shadows  (note the rgba is red, green, blue, alpha) */
+			-webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4);
+			-moz-box-shadow: 0px 1px 6px rgba(23, 69, 88, .5);
+			/* rounded corners */
+			-webkit-border-radius: 12px;
+			-moz-border-radius: 7px;
+			border-radius: 7px;
 		}
 /*		.cstmCluesDiv p {
 			position: relative;
 			top: 50%;
 			transform: translateY(-50%);
-		}*/
-
-
-
+}
+*/

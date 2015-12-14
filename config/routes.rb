@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  # mount_ember_app :frontend, to: "/"
+
   namespace :api do
     namespace :v1 do
       resources :users, :defaults => { :format => 'json' }
