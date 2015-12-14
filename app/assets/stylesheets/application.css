@@ -49,6 +49,9 @@
 		}
 
 			#cstm-image {
+
+				/*position: absolute;*/
+
 				max-width: 90%;
 				max-height: 27em;
 				display: block;   

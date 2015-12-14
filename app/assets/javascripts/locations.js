@@ -9,6 +9,12 @@ $(function(){
 	// 	$("#guess-div").show();
 	// })
 
+
+	// $(document).ready(function(){
+ //    $("#cstm-image").animate({left: '250px'});
+	// });
+
+
 	$('#make_guess').on('submit', function(e){
 		// e.stopPropagation();
 		var guess = $("#name").val();
@@ -42,3 +48,8 @@ $(function(){
 		}
 	})
 })
+
+
+
+
+

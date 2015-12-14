@@ -6,6 +6,9 @@
 <!-- <div id="cstm-body"> -->
 <link href='https://fonts.googleapis.com/css?family=Meddon|IM+Fell+English' rel='stylesheet' type='text/css'>
 
+<script>
+</script>
+
 
 	<div id="cstm-nav-bar">
 	</div>
@@ -38,7 +41,7 @@
 			<%= form_for @clue, html: {id: 'reveal-clue'}, method: 'post' do |f| %>
 				<%= f.hidden_field :location_id, :value => @location.id %>
 			<div class="cstmRevealClueButtonDiv">
-				<%= f.submit "Reveal a Clue" %>
+				<%= f.submit "Click to Reveal a Clue" %>
 			</div>
 				<% end %>
 			<div class="cstmCluesDiv">
