@@ -15,7 +15,7 @@ $(function(){
 
           $(".clues").append(dataBack)
 
-           
+
         }
       })
     } else {
