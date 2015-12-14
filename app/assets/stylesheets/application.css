@@ -25,13 +25,13 @@
 
 #cstm-nav-bar {
 	height: 4.5em;
-	background-color: midnightblue;
+	background-color: white;
 }
 
 
 #cstm-display {
 	height: 44em;
-	background-color: midnightblue;
+	background-color: white;
 	margin: 0;
 }
 
@@ -71,12 +71,11 @@
 	height: 14em;
 }
 
-#cstm-guess-div h3 {
-	font-family: "Meddon", cursive;
-	font-size: 1.5em;
-	color: lightgray;
-	text-shadow: 0px 0px 10px #000000;
-}
+			#cstm-guess-div h3 {
+				font-family: "Meddon", cursive;
+				font-size: 1.5em;
+				color: black;
+			}
 
 #cstm-guess-inputs {
 	width: 66%;
@@ -90,7 +89,9 @@
 					width: 60%;
 					max-height: 2.5em;
 					margin: .8em 5% 0 0;
-					border-style: none;
+					border-style: solid;
+					border-size: 1px;
+					border-color: black;
 					border-radius: 1px;
 					padding: 0 3%;
 					background: lightgrey;
@@ -98,6 +99,7 @@
 					font-size: 2em;
 					line-height: 2em;
 					box-shadow: 0px 0px 4px lightgray;
+					border-radius: .3em;
 				}
 					#cstm-guess-field input:focus {
     			border-style: none;
@@ -108,7 +110,7 @@
 					float: right;
 					width: 30%;
 					height: 2.5em;
-					margin: 1.1em 0 0 5%;
+					margin: 1.2em 0 0 5%;
 					border-style: none;
 					padding: .2em 2.5% 0;
 					background-color: lightgrey;
@@ -120,8 +122,8 @@
 					border-radius: .3em;
 				}
 					#cstm-guess-button input:hover {
-						color: darkgreen;
-						background: white;
+						color: white;
+						background: darkgray;
 						opacity: 1;
 						opacity: .8;
 					}
@@ -150,19 +152,18 @@
 			top: 50%;
 			transform: translateY(-50%);
 			border-style: none;
-			background: darkgray;
+			background: lightgray;
 			width: 66%;
 			height: 2em;
 			font-size: 1.3em;
 			padding-top: .2em;
-			border-radius: 2px;
-			border-style: solid;
-			border-width: 1px;
-			border-color: black;
+			border-radius: 5px;
 			letter-spacing: .1em;
+			color: black;
 		}
 			.cstmRevealClueButtonDiv input:hover {
-				background-color: white;
+				background-color: darkgray;
+				color: white;
 			}
 			.cstmRevealClueButtonDiv input:focus {
 				outline: none;
@@ -171,19 +172,21 @@
 		.cstmCluesDiv {
 			float: left;
 			width: 100%;
-			height: 4.5em;
 			margin-top: 1.33em;
 			background: lightgray;
 			text-align: center;
-			letter-spacing: .3em;
 			border-style: solid;
-			border-color: darkgray;
+			border-color: black;
 			border-width: .33em;
 			text-align: center;
-			box-shadow: 0px 0px 5px #000000;
+			box-shadow: 0px 0px 2px #000000;
+			color: black;
+			padding: 1em;
+			border-radius: .5em;
 		}
-		.cstmCluesDiv p {
+/*		.cstmCluesDiv p {
 			position: relative;
 			top: 50%;
 			transform: translateY(-50%);
-		}
+}
+*/

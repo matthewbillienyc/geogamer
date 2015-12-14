@@ -3,7 +3,7 @@ $(function(){
   $("#reveal-clue").on('submit', function(e){
     e.preventDefault();
     e.stopPropagation();
-    if ($("li").length < 6) {
+    if ($(".cstmCluesDiv").length < 6) {
       var method = this.getAttribute('method');
       var url = this.getAttribute('action');
       var $form = $(this);
@@ -13,8 +13,8 @@ $(function(){
         data: $form.serialize(),
         success: function(dataBack){
 
-          // $(".clues").append(dataBack)
-          $(".cstmCluesDiv").text(dataBack) 
+          $(".clues").append(dataBack)
+
            
         }
       })
