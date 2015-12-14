@@ -23,7 +23,7 @@
 
 
 #cstm-display {
-	height: 44em;
+	height: 53em;
 	margin: 0;
 	font-weight: 900;
 	background-color: rgba(246,244,230,.75);
@@ -48,7 +48,7 @@
 	display: block;
 	border-style: solid;
 	border-width: 1em;
-	border-color: #f6f4e6;
+	border-color: #fcfbf9;
 	margin-top: .8em;
 	margin-left: auto;
 	margin-right: auto;

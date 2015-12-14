@@ -19,7 +19,7 @@ $(function(){
 		// e.stopPropagation();
 		var guess = $("#name").val();
 		var answer = $('.name').attr('id')
-		var listLength = $('li').length
+		var listLength = $('.cstmCluesDiv').length
 		if (guess.toLowerCase() == answer.toLowerCase()) {
 			var score = eval($("#score").attr("value"))
 			score = (score - listLength*10)
