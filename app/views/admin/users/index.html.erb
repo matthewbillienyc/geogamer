@@ -1,6 +1,6 @@
 <% @adminviewobject = AdminViewObject.new %>
 <div class="container">
-  <div class="top-bar">
+  <div class="top-bar gradient-box">
   <h3>Overall Stats</h3>
     <ul>
       <li class='bold'>Player with the most locations:</li> <%= @adminviewobject.user_with_most_locations %>
@@ -8,7 +8,9 @@
       <li class='bold'>Clue revealed most often:</li> <%= @adminviewobject.most_used_clue_across_all_games %>
       <li class='bold'>Player with most games:</li> <%= @adminviewobject.user_with_most_games %>
     </ul>
+
   <h3>User Stats</h3>
+
     <% @users.each do |user| %>
       <ul>
         <li><h4><%= user.capitalize_name %></h4></li>
