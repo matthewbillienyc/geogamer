@@ -44,7 +44,8 @@
 				<%= f.submit "Click to Reveal a Clue" %>
 			</div>
 				<% end %>
-			<div class="cstmCluesDiv">
+
+<!-- 			<div class="cstmCluesDiv">
 				<p>CLUE #1</p>
 			</div>
 			<div class="cstmCluesDiv">
@@ -61,9 +62,9 @@
 			</div>
 			<div class="cstmCluesDiv">
 				<p>CLUE #6</p>
-			</div>
+			</div> -->
 
-			<ul class="clues">
+			<div class="clues">
 				<% if @clues %>
 					<% @clues.each do |clue| %>
 						<div class="cstmCluesDiv">
@@ -71,7 +72,7 @@
 						</div>
 					<% end %>
 				<% end %>
-			</ul>
+			</div>
 
 		</div>
 
