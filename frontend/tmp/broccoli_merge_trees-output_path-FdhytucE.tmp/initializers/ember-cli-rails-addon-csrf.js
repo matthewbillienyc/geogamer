@@ -1,0 +1,1 @@
+/Users/matthewwmain/Development/FLATIRON/projects/geogamer/frontend/tmp/broccoli_merge_trees-input_base_path-RcODPOZg.tmp/9/initializers/ember-cli-rails-addon-csrf.js

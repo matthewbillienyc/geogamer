@@ -1,0 +1,99 @@
+export default Ember.HTMLBars.template((function() {
+  var child0 = (function() {
+    return {
+      meta: {
+        "revision": "Ember@1.13.11",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 3,
+            "column": 0
+          }
+        },
+        "moduleName": "frontend/templates/components/form-element/inline/default.hbs"
+      },
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createTextNode("    ");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("label");
+        dom.setAttribute(el1,"class","control-label");
+        var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var element0 = dom.childAt(fragment, [1]);
+        var morphs = new Array(2);
+        morphs[0] = dom.createAttrMorph(element0, 'for');
+        morphs[1] = dom.createMorphAt(element0,0,0);
+        return morphs;
+      },
+      statements: [
+        ["attribute","for",["concat",[["subexpr","concat",[["get","elementId",["loc",[null,[2,47],[2,56]]]],"-",["get","name",["loc",[null,[2,61],[2,65]]]]],[],["loc",[null,[2,38],[2,67]]]]]]],
+        ["content","label",["loc",[null,[2,69],[2,78]]]]
+      ],
+      locals: [],
+      templates: []
+    };
+  }());
+  return {
+    meta: {
+      "revision": "Ember@1.13.11",
+      "loc": {
+        "source": null,
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 6,
+          "column": 0
+        }
+      },
+      "moduleName": "frontend/templates/components/form-element/inline/default.hbs"
+    },
+    arity: 0,
+    cachedFragment: null,
+    hasRendered: false,
+    buildFragment: function buildFragment(dom) {
+      var el0 = dom.createDocumentFragment();
+      var el1 = dom.createComment("");
+      dom.appendChild(el0, el1);
+      var el1 = dom.createComment("");
+      dom.appendChild(el0, el1);
+      var el1 = dom.createTextNode("\n");
+      dom.appendChild(el0, el1);
+      var el1 = dom.createComment("");
+      dom.appendChild(el0, el1);
+      var el1 = dom.createTextNode("\n");
+      dom.appendChild(el0, el1);
+      return el0;
+    },
+    buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+      var morphs = new Array(3);
+      morphs[0] = dom.createMorphAt(fragment,0,0,contextualElement);
+      morphs[1] = dom.createMorphAt(fragment,1,1,contextualElement);
+      morphs[2] = dom.createMorphAt(fragment,3,3,contextualElement);
+      dom.insertBoundary(fragment, 0);
+      return morphs;
+    },
+    statements: [
+      ["block","if",[["get","hasLabel",["loc",[null,[1,6],[1,14]]]]],[],0,null,["loc",[null,[1,0],[3,7]]]],
+      ["inline","bs-input",[],["id",["subexpr","concat",[["get","elementId",["loc",[null,[4,22],[4,31]]]],"-",["get","name",["loc",[null,[4,36],[4,40]]]]],[],["loc",[null,[4,14],[4,41]]]],"name",["subexpr","@mut",[["get","name",["loc",[null,[4,47],[4,51]]]]],[],[]],"type",["subexpr","@mut",[["get","controlType",["loc",[null,[4,57],[4,68]]]]],[],[]],"value",["subexpr","@mut",[["get","value",["loc",[null,[4,75],[4,80]]]]],[],[]],"placeholder",["subexpr","@mut",[["get","placeholder",["loc",[null,[4,93],[4,104]]]]],[],[]]],["loc",[null,[4,0],[4,106]]]],
+      ["inline","partial",["components/form-element/feedback-icon"],[],["loc",[null,[5,0],[5,51]]]]
+    ],
+    locals: [],
+    templates: [child0]
+  };
+}()));

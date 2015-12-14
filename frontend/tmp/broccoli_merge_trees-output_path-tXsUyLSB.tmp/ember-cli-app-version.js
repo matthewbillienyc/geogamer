@@ -1,0 +1,1 @@
+/Users/matthewwmain/Development/FLATIRON/projects/geogamer/frontend/tmp/reexporter-output_path-2n9v3Jr3.tmp/reexports/ember-cli-app-version.js
