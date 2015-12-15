@@ -16,11 +16,6 @@ ActiveRecord::Schema.define(version: 20151208204402) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "challenges", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "clues", force: :cascade do |t|
     t.integer "location_id"
     t.integer "datatype_id"

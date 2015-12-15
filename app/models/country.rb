@@ -254,14 +254,10 @@ class Country
     return Country.country_list.sample[:name]
   end
 
-
-
-
   def self.all_names
     country_list.map { |hash| hash[:name] }
   end
-
-  #Takes forever to scrape; instead, use @country_names_areas_continents as hard-coded shortcut
+  
   def self.all_names_areas_continents
     countries_areas_continents_array = []
     all_names.map do |country|
@@ -276,13 +272,13 @@ class Country
   end
 
   def self.all_names_with_areas_and_continents
-    @country_names_areas_continents.map do |hash| 
+    @country_names_areas_continents.map do |hash|
         {:name => hash[:name], :area => hash[:area].gsub(',',''), :continent => hash[:continent]} unless hash[:area].include?("None")
     end.compact
   end
 
   def self.all_names_by_area
-    all_names_with_areas_and_continents.sort_by do |hash| 
+    all_names_with_areas_and_continents.sort_by do |hash|
         hash[:area].to_i
     end.reverse
   end
@@ -306,18 +302,16 @@ class Country
 
   def self.choose_random_hard_country
     all_names_with_areas_and_continents.map do |hash|
-        hash if hash[:area].to_i < 3000000 
+        hash if hash[:area].to_i < 3000000
     end.compact.sample[:name]
   end
 
   def self.choose_random_really_hard_country
     all_names_with_areas_and_continents.map do |hash|
-        hash if hash[:area].to_i < 1000 
+        hash if hash[:area].to_i < 1000
     end.compact.sample[:name]
   end
 
-
-  ### generated from self.all_names_areas_continents ###
   @country_names_areas_continents = [
     {:name => "Afghanistan", :area => "647,500 km2", :continent => "Asia"},
     {:name => "Aland Islands", :area => "None km2", :continent => "Europe"},
@@ -560,7 +554,5 @@ class Country
     {:name => "Yemen", :area => "527,970 km2", :continent => "Asia"},
     {:name => "Zambia", :area => "752,614 km2", :continent => "Africa"},
     {:name => "Zimbabwe", :area => "390,580 km2", :continent => "Africa"}
-    ]  
-
-
+    ]
 end
